@@ -494,9 +494,89 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          计算机网络的性能评价指标
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         计算机网络的性能评价指标
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-速率" class="md-nav__link">
+    1. 速率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-带宽" class="md-nav__link">
+    2. 带宽
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-吞吐量" class="md-nav__link">
+    3. 吞吐量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-时延" class="md-nav__link">
+    4. 时延
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-时延带宽积" class="md-nav__link">
+    5. 时延带宽积
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-往返时间rttround-trip-time" class="md-nav__link">
+    6. 往返时间RTT(Round-Trip Time)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-利用率" class="md-nav__link">
+    7. 利用率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-丢包率" class="md-nav__link">
+    8. 丢包率
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1376,6 +1456,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-速率" class="md-nav__link">
+    1. 速率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-带宽" class="md-nav__link">
+    2. 带宽
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-吞吐量" class="md-nav__link">
+    3. 吞吐量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-时延" class="md-nav__link">
+    4. 时延
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-时延带宽积" class="md-nav__link">
+    5. 时延带宽积
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-往返时间rttround-trip-time" class="md-nav__link">
+    6. 往返时间RTT(Round-Trip Time)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-利用率" class="md-nav__link">
+    7. 利用率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-丢包率" class="md-nav__link">
+    8. 丢包率
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1401,16 +1545,13 @@
 <li>时延</li>
 <li>时延带宽积</li>
 <li>往返时间RTT</li>
-<li>
-<p>利用率</p>
-</li>
-<li>
-<p><strong>速率</strong>
-&emsp;&emsp;速率指的是<strong>数据的传送速率</strong>，也称为"数据率"或"比特率"。<strong>比特是信息论中使用的信息量的单位</strong>。一个比特在信息存储中代表一位"0"或"1"。一个字节具有八个比特。相关的数据量单位关系如下:</p>
-</li>
-<li>
-<p><span class="arithmatex">\(1 Byte = 8 bit\)</span></p>
-</li>
+<li>利用率</li>
+<li>丢包率</li>
+</ul>
+<h2 id="1-速率"><strong>1. 速率</strong><a class="headerlink" href="#1-速率" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;速率指的是<strong>数据的传送速率</strong>，也称为"数据率"或"比特率"。<strong>比特是信息论中使用的信息量的单位</strong>。一个比特在信息存储中代表一位"0"或"1"。一个字节具有八个比特。相关的数据量单位关系如下:</p>
+<ul>
+<li><span class="arithmatex">\(1 Byte = 8 bit\)</span></li>
 <li><span class="arithmatex">\(1 KB = 2^{10}Byte\)</span> = <span class="arithmatex">\((2^{10} * 8) bits\)</span></li>
 <li><span class="arithmatex">\(1 MB = 2^{10}KB\)</span></li>
 <li><span class="arithmatex">\(1 GB = 2^{10}MB\)</span></li>
@@ -1427,40 +1568,34 @@
 <blockquote>
 <p><strong>注意：</strong> 数据量的单位量级与速率的单位量级是不一致的。前者是<span class="arithmatex">\(2^{10}\)</span>，后者是<span class="arithmatex">\(10^3\)</span>。这就意味着，<span class="arithmatex">\(1Gb/s\)</span>不代表着1s内在数字信道上传送的数据量为<span class="arithmatex">\(1Gb = (2^{10} *2^{10}* 2^{10} *8 )bit\)</span>,而是<span class="arithmatex">\((10^3*10^3*10^3)bit.\)</span></p>
 </blockquote>
-<ol>
-<li><strong>带宽</strong>
-&emsp;&emsp;带宽在模型信号系统中的意义是:信号所包含的各种不同频率成分所占据的频率范围。其单位是:<strong>Hz(kHz、MHz、GHz)</strong>
-&emsp;&emsp;带宽在计算机网络中的意义是：用来表示网络的通信线路所能传送数据的能力，因此网络带宽表示在单位时间内从网络中的某一点到另外一点所能通过的<strong>最高数据量</strong>。单位是:<strong>b/s(kb/s,Mb/s,Gb/s,Tb/s)</strong></li>
-</ol>
+<h2 id="2-带宽"><strong>2. 带宽</strong><a class="headerlink" href="#2-带宽" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;带宽在模型信号系统中的意义是:信号所包含的各种不同频率成分所占据的频率范围。其单位是:<strong>Hz(kHz、MHz、GHz)</strong></p>
+<p>&emsp;&emsp;带宽在计算机网络中的意义是：用来表示网络的通信线路所能传送数据的能力，因此网络带宽表示在单位时间内从网络中的某一点到另外一点所能通过的<strong>最高数据量</strong>。单位是:<strong>b/s(kb/s,Mb/s,Gb/s,Tb/s)</strong></p>
 <blockquote>
 <p>换句话就是：在计算机网络中，<strong>带宽是最大速率</strong>。一条通信链路的"带宽"越宽，所能传输的"最高数据率"也越高。</p>
 </blockquote>
-<ol>
-<li><strong>吞吐量</strong>
-&emsp;&emsp;吞吐量表示在<strong>单位时间内通过某个网络(或信道、接口)的实际数据量</strong>。
-&emsp;&emsp;吞吐量经常被用于对现实世界中的网络的一种测量，以便知道实际上到底有多少数据量能够通过网络。
-&emsp;&emsp;吞吐量<strong>受网络的带宽或额定速率的限制</strong>。</li>
-</ol>
+<h2 id="3-吞吐量"><strong>3. 吞吐量</strong><a class="headerlink" href="#3-吞吐量" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;吞吐量表示在<strong>单位时间内通过某个网络(或信道、接口)的实际数据量</strong>。</p>
+<p>&emsp;&emsp;吞吐量经常被用于对现实世界中的网络的一种测量，以便知道实际上到底有多少数据量能够通过网络。</p>
+<p>&emsp;&emsp;吞吐量<strong>受网络的带宽或额定速率的限制</strong>。</p>
 <blockquote>
 <p>必须明确，吞吐量是单位时间内通过某个网络的<strong>实际数据量</strong>。例如:某以太网的速率为:<span class="arithmatex">\(1GB/s\)</span>,则其 <strong>实际通过的数据量(吞吐量)</strong> 可能为<span class="arithmatex">\(700Mb/s\)</span>。</p>
 </blockquote>
 <p><img alt="" src="../imags/14.png" /></p>
-<ol>
-<li><strong>时延</strong>
-&emsp;&emsp;时延是指<strong>数据从网络的一端传送到另一端所需的时间</strong>。有时也被称为<strong>延迟</strong>或<strong>迟延</strong>。
-&emsp;&emsp;时延是由以下几个不同的部分组成：<ul>
+<h2 id="4-时延"><strong>4. 时延</strong><a class="headerlink" href="#4-时延" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;时延是指<strong>数据从网络的一端传送到另一端所需的时间</strong>。有时也被称为<strong>延迟</strong>或<strong>迟延</strong>。</p>
+<p>&emsp;&emsp;时延是由以下几个不同的部分组成：</p>
+<ul>
 <li>发送时延</li>
 <li>传播时延</li>
 <li>处理时延</li>
 <li>排队时延</li>
 </ul>
-</li>
-</ol>
 <p>即:<strong>总时延 = 发送时延 + 传播时延 + 处理时延 + 排队时延</strong></p>
-<p>&emsp;&emsp;(1) 发送时延：发送时延是<strong>主机或路由器发送数据帧所需要的时间</strong>。也就是从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需要的时间。计算公式如下：
-$$
+<p>&emsp;&emsp;(1) 发送时延：发送时延是<strong>主机或路由器发送数据帧所需要的时间</strong>。也就是从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需要的时间。计算公式如下：</p>
+<div class="arithmatex">\[
 发送时延 = \frac{数据帧长度(bit)}{发送速率(bit/s)}
-$$</p>
+\]</div>
 <blockquote>
 <p>据此可分析出，当网络速率一定时，发送时延与数据帧的长度成正比关系(<strong>当数据量越大，发送时延就越大</strong>)。</p>
 </blockquote>
@@ -1476,51 +1611,39 @@ $$</p>
 <p>&emsp;&emsp;(3) 处理时延: 处理时延是<strong>主机或路由器在收到分组时要花费一定的时间进行处理。这个阶段所花费的时间就是处理时延。</strong></p>
 <hr />
 <p>&emsp;&emsp;(4) 排队时延: 分组在经过网络传输时，要经过许多路由器。但分组在进入路由器后要先在输入队列中排队等候处理。此时就产生了排队时延。<strong>排队时延的长短取决于网络当时的通信量，当网络的通信量很大时，会发生队溢出，使得分组丢失，此时的排队时延就为无限大</strong>。</p>
-<p>下图中，将排队时延放入了处理时延中进行了讨论。
-<img alt="" src="../imags/15.png" /></p>
-<ol>
-<li><strong>时延带宽积</strong>
-&emsp;&emsp;将<strong>传播时延和带宽相乘</strong>就能得到时延带宽积:
-$$
+<p>下图中，将排队时延放入了处理时延中进行了讨论。</p>
+<p><img alt="" src="../imags/15.png" /></p>
+<h2 id="5-时延带宽积"><strong>5. 时延带宽积</strong><a class="headerlink" href="#5-时延带宽积" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;将<strong>传播时延和带宽相乘</strong>就能得到时延带宽积:</p>
+<div class="arithmatex">\[
 时延带宽积 = 传播时延 × 带宽
-$$</li>
-</ol>
+\]</div>
 <blockquote>
 <p>时延带宽积又称为<strong>以比特为单位的链路长度</strong>。其实就是表示这个链路可以容纳多少个比特。</p>
 </blockquote>
 <p><img alt="" src="../imags/16.png" /></p>
-<ol>
-<li>
-<p><strong>往返时间RTT(Round-Trip Time)</strong>
-&emsp;&emsp;在许多情况下，因特网上的信息不仅仅单方向传输，而是双向交互;我们有时很需要知道双向交互一次所需的时间，而该时间就是RTT。</p>
-</li>
-<li>
-<p><strong>利用率</strong>
-&emsp;&emsp;利用率分为<strong>信道利用率</strong>和<strong>网络利用率</strong>。信道利用率可以指出某信道有百分之几是被利用的。<strong>完全空闲的信道其利用率为0</strong>。网络利用率则是全网络的信道利用率的加权平均值。<strong>依据排队理论，当信道利用率越大，排队时延就越长，总时延也就越长</strong>。
-&emsp;&emsp;假设当前网络完全空闲时的时延为<span class="arithmatex">\(D_0\)</span>,当前网络时延为<span class="arithmatex">\(D\)</span>。则网络利用率<span class="arithmatex">\(U\)</span>等于:
-    $$
+<h2 id="6-往返时间rttround-trip-time"><strong>6. 往返时间RTT(Round-Trip Time)</strong><a class="headerlink" href="#6-往返时间rttround-trip-time" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;在许多情况下，因特网上的信息不仅仅单方向传输，而是双向交互;我们有时很需要知道双向交互一次所需的时间，而该时间就是RTT。</p>
+<h2 id="7-利用率"><strong>7. 利用率</strong><a class="headerlink" href="#7-利用率" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;利用率分为<strong>信道利用率</strong>和<strong>网络利用率</strong>。信道利用率可以指出某信道有百分之几是被利用的。<strong>完全空闲的信道其利用率为0</strong>。网络利用率则是全网络的信道利用率的加权平均值。<strong>依据排队理论，当信道利用率越大，排队时延就越长，总时延也就越长</strong>。</p>
+<p>&emsp;&emsp;假设当前网络完全空闲时的时延为<span class="arithmatex">\(D_0\)</span>,当前网络时延为<span class="arithmatex">\(D\)</span>。则网络利用率<span class="arithmatex">\(U\)</span>等于:</p>
+<div class="arithmatex">\[
     U = \frac{D-D_0}{D}
-    $$</p>
-<p>变换得:
-$$
-D = \frac{D_0}{1-U}
-$$</p>
+\]</div>
+<p>&emsp;&emsp; 变换得:</p>
+<div class="arithmatex">\[
+    D = \frac{D_0}{1-U}
+\]</div>
 <p><img alt="" src="../imags/17.png" /></p>
 <p>由上述公式及图可看出: 当网络利用率达到50%以上时，时延就会成倍增长。<strong>信道利用率或网络利用率过高就会产生非常大的时延</strong>。这也就是为什么一些ISP会对网络时延进行限制。(意味着当有大量人群访问时，网速会有所下降)。</p>
-</li>
-</ol>
 <hr />
-<ol>
-<li>
-<p><strong>丢包率</strong>
-&emsp;&emsp;丢包率即分组丢失率，是指在一定时间范围内，传输过程中<strong>丢失的分组数量与总分组数量的比率</strong>。丢包率具体可分为接口丢包率、结点丢包率、链路丢包率、路径丢包率、网络丢包率等。
-&emsp;&emsp;分组丢失主要有两种情况:</p>
+<h2 id="8-丢包率"><strong>8. 丢包率</strong><a class="headerlink" href="#8-丢包率" title="Permanent link"></a></h2>
+<p>&emsp;&emsp;丢包率即分组丢失率，是指在一定时间范围内，传输过程中<strong>丢失的分组数量与总分组数量的比率</strong>。丢包率具体可分为接口丢包率、结点丢包率、链路丢包率、路径丢包率、网络丢包率等。</p>
+<p>&emsp;&emsp;分组丢失主要有两种情况:</p>
 <ul>
 <li>分组在传输过程中 <strong>出现误码，被结点丢弃</strong> ；</li>
 <li>分组<strong>到达一台队列已满的分组交换机时被丢弃</strong>；</li>
 </ul>
-</li>
-</ol>
 <p>&emsp;&emsp;丢包率可以反映网络的拥塞情况:</p>
 <ul>
 <li>无拥塞：0%</li>

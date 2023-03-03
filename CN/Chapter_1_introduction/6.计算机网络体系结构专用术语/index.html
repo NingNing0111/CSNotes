@@ -1478,17 +1478,17 @@
 <li>实体：<strong>任何可发送或接收信息的硬件或软件进程</strong>。在很多情况下，实体就是一个特定的软件模块。</li>
 <li>对等实体：收发双方<strong>相同层次中的实体</strong>。</li>
 </ol>
-<p>&emsp;&emsp;例如：下图所示，字母A~J表示实体，A与F、B与G、C与H等都是对等实体。
-<img alt="" src="../imags/22.png" /></p>
+<p>&emsp;&emsp;例如：下图所示，字母A~J表示实体，A与F、B与G、C与H等都是对等实体。</p>
+<p><img alt="" src="../imags/22.png" /></p>
 <h2 id="协议">协议<a class="headerlink" href="#协议" title="Permanent link"></a></h2>
 <ol>
-<li>协议：协议是<strong>控制两个(或多个)对等实体进行通信规则的集合</strong>。
-<img alt="" src="../imags/23.png" />
-&emsp;&emsp;协议的语法方面的规则定义了所交换的信息的格式，协议的语义方面的规则定义了发送者或接收者所要完成的操作，协议的同步定义了收发双方的时序关系。<strong>语法、语义和同步是协议的三要素。</strong></li>
+<li>协议：协议是<strong>控制两个(或多个)对等实体进行通信规则的集合</strong>。</li>
 </ol>
+<p><img alt="" src="../imags/23.png" /></p>
+<p>&emsp;&emsp;协议的语法方面的规则定义了所交换的信息的格式，协议的语义方面的规则定义了发送者或接收者所要完成的操作，协议的同步定义了收发双方的时序关系。<strong>语法、语义和同步是协议的三要素。</strong></p>
 <h2 id="服务">服务<a class="headerlink" href="#服务" title="Permanent link"></a></h2>
-<p>&emsp;&emsp;<strong>在协议的控制下，两个对等实体间的逻辑通信使得本层能够向上一层提供服务。要实现本层的协议，还需要使用下面一层所提供的服务</strong>。
-&emsp;&emsp;使用本层服务的实体只能看见服务而无法看见下面的协议。<strong>下面的协议对上面的实体是透明的</strong>。</p>
+<p>&emsp;&emsp;<strong>在协议的控制下，两个对等实体间的逻辑通信使得本层能够向上一层提供服务。要实现本层的协议，还需要使用下面一层所提供的服务</strong>。</p>
+<p>&emsp;&emsp;使用本层服务的实体只能看见服务而无法看见下面的协议。<strong>下面的协议对上面的实体是透明的</strong>。</p>
 <p><img alt="" src="../imags/24.png" /></p>
 <p>&emsp;&emsp;由图可知，因为协议是控制对等实体之间通信的规则，因此，<strong>协议是“水平的”</strong>。服务是由下层向上层通过层间接口提供的，因此，<strong>服务是“垂直的”</strong>。</p>
 <blockquote>

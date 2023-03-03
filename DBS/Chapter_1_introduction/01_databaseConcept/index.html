@@ -1570,9 +1570,9 @@
 <li>数据库系统的特点(优点)</li>
 </ul>
 <h2 id="数据-data">数据 Data<a class="headerlink" href="#数据-data" title="Permanent link"></a></h2>
-<p>&emsp;&emsp;数据是<strong>数据库中存储的基本对象</strong>。其定义是：描述事物的符号记录。
-&emsp;&emsp;数据的种类：数字、文字、图形、图像等。
-&emsp;&emsp;数据的含义称为<strong>数据的语义</strong>，数据与其语义是不可分的。</p>
+<p>&emsp;数据是<strong>数据库中存储的基本对象</strong>。其定义是：描述事物的符号记录。</p>
+<p>&emsp;数据的种类：数字、文字、图形、图像等。</p>
+<p>&emsp;数据的含义称为<strong>数据的语义</strong>，数据与其语义是不可分的。</p>
 <h2 id="数据库-db">数据库 DB<a class="headerlink" href="#数据库-db" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;数据库是<strong>长期存储</strong>在计算机内、<strong>有组织</strong>的、<strong>可共享</strong>的<strong>大量数据的集合</strong>。</p>
 <p>&emsp;&emsp;数据库的基本特征：</p>
@@ -1588,49 +1588,39 @@
 <p><img alt="" src="../imags/1-1.png" /></p>
 <p>&emsp;&emsp;数据库处于操作系统与用户应用软件之间，处于基础软件平台。</p>
 <h3 id="主要功能">主要功能<a class="headerlink" href="#主要功能" title="Permanent link"></a></h3>
-<ol>
-<li><strong>数据定义功能</strong></li>
+<p><strong>1. 数据定义功能</strong></p>
+<ul>
 <li>提供数据定义语言(DDL)</li>
-<li>
-<p>定义数据库中的数据对象</p>
-</li>
-<li>
-<p><strong>数据组织、存储和管理</strong></p>
-</li>
+<li>定义数据库中的数据对象</li>
+</ul>
+<p><strong>2. 数据组织、存储和管理</strong></p>
+<ul>
 <li>分类组织、存储和管理各种数据；</li>
 <li>确定数据在存储级别上的结构和存取方式</li>
 <li>实现数据之间的联系</li>
-<li>
-<p>提供多种存取方法提高存取效率</p>
-</li>
-<li>
-<p><strong>数据操纵功能</strong></p>
-</li>
+<li>提供多种存取方法提高存取效率</li>
+</ul>
+<p><strong>3. 数据操纵功能</strong></p>
+<ul>
 <li>提供数据操纵语言(DML)</li>
-<li>
-<p>实现对数据库的基本操作(增删改查)</p>
-</li>
-<li>
-<p><strong>数据库的事物管理和运行管理</strong></p>
-</li>
+<li>实现对数据库的基本操作(增删改查)</li>
+</ul>
+<p><strong>4. 数据库的事物管理和运行管理</strong></p>
+<ul>
 <li>数据的安全性、完整性、多用户对数据的并发使用</li>
 <li>发生故障后的系统恢复数据库</li>
-<li>
-<p>由数据库管理系统统一管理和控制，保证事务正常运行</p>
-</li>
-<li>
-<p><strong>数据库的建立和维护功能</strong></p>
-</li>
-<li>
-<p>提供实用程序/工具，完成数据库数据批量装载，数据库转储，介质故障恢复，数据库的重组织和性能监视等</p>
-</li>
-<li>
-<p><strong>其它</strong></p>
-</li>
+<li>由数据库管理系统统一管理和控制，保证事务正常运行</li>
+</ul>
+<p><strong>5. 数据库的建立和维护功能</strong></p>
+<ul>
+<li>提供实用程序/工具，完成数据库数据批量装载，数据库转储，介质故障恢复，数据库的重组织和性能监视等</li>
+</ul>
+<p><strong>6. 其它</strong></p>
+<ul>
 <li>DBMS与网络中其它软件系统的通信</li>
 <li>DBMS系统之间的数据转换</li>
 <li>异构数据库之间的互访和互操作</li>
-</ol>
+</ul>
 <h2 id="数据库系统-dbs">数据库系统 DBS<a class="headerlink" href="#数据库系统-dbs" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;DBS是指在<strong>计算机系统中引入数据库后的系统构成</strong>。在不引起混淆的情况下常常把数据库系统简称为数据库。</p>
 <h3 id="dbs构成">DBS构成<a class="headerlink" href="#dbs构成" title="Permanent link"></a></h3>
@@ -1642,8 +1632,8 @@
 </ul>
 <p><img alt="" src="../imags/1-2.png" /></p>
 <h2 id="数据库系统的特点">数据库系统的特点<a class="headerlink" href="#数据库系统的特点" title="Permanent link"></a></h2>
-<ol>
-<li><strong>数据结构化</strong></li>
+<p><strong>1. 数据结构化</strong></p>
+<ul>
 <li><strong>数据的整体结构化</strong>是数据库的主要特征之一<ul>
 <li>不再仅仅针对某一应用，而是面向整个企业或组织；</li>
 <li>不仅数据内部结构化，整体是结构化的，数据之间具有联系；</li>
@@ -1651,24 +1641,20 @@
 <li>数据的最小存取单位是数据项</li>
 </ul>
 </li>
-<li>
-<p><strong>数据用数据模型描述</strong>，无需应用程序定义</p>
-</li>
-<li>
-<p><strong>数据的共享性高，冗余度低且易扩充</strong></p>
-</li>
-<li>数据面向整个系统，可以被多个用户、多个应用共享使用；</li>
-<li>
-<p>共享后具有如下好处：</p>
+<li><strong>数据用数据模型描述</strong>，无需应用程序定义</li>
+</ul>
+<p><strong>2. 数据的共享性高，冗余度低且易扩充</strong></p>
 <ul>
+<li>数据面向整个系统，可以被多个用户、多个应用共享使用；</li>
+<li>共享后具有如下好处：<ul>
 <li>减少数据冗余，节约存储空间</li>
 <li>避免数据之间的不相容性与不一致性</li>
 <li>使系统易于扩充</li>
 </ul>
 </li>
-<li>
-<p><strong>数据独立性高</strong></p>
-</li>
+</ul>
+<p><strong>3. 数据独立性高</strong></p>
+<ul>
 <li>物理独立性<ul>
 <li>指用户的应用程序与数据库中数据的物理存储是相互独立的。当数据的物理存储改变了，应用程序不用改变。</li>
 </ul>
@@ -1677,17 +1663,15 @@
 <li>指用户的应用程序与数据库的逻辑结构是相互独立的。数据的逻辑结构改变了，应用程序不用改变。</li>
 </ul>
 </li>
-<li>
-<p>数据独立性由数据库管理系统的二级映像功能来保证。</p>
-</li>
-<li>
-<p><strong>数据由数据库管理系统统一管理和控制</strong></p>
-</li>
+<li>数据独立性由数据库管理系统的二级映像功能来保证。</li>
+</ul>
+<p><strong>4. 数据由数据库管理系统统一管理和控制</strong></p>
+<ul>
 <li><strong>数据的安全性(Security)保护</strong>: 保护数据以防止不合法的使用造成的数据的泄密和破坏。</li>
 <li><strong>数据的完整性(Integrity)检查</strong>: 保证数据的正确性、有效性和相容性。</li>
 <li><strong>并发控制(Concurrency Control)</strong>: 对多用户的并发操作加以控制和协调，防止相互干扰而得到错误的结果。</li>
 <li><strong>数据库恢复(Recovery)</strong>: 将数据库从错误状态恢复到某一已知的正确状态。</li>
-</ol>
+</ul>
 <h2 id="总结">总结<a class="headerlink" href="#总结" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;数据库是<strong>长期存储</strong>在计算机内<strong>有组织</strong>的<strong>共享的</strong>大量的数据集合，它可以供各种用户共享，<strong>具有最小冗余度和较高的数据独立性</strong>，数据库管理系统在数据库建立、运用和维护时对<strong>数据库进行统一控制</strong>，以保证数据的完整性、安全性，并在多用户同时使用数据库时进行并发控制，在发生故障后对数据库进行恢复。</p>
 

@@ -642,9 +642,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          物理层设备
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         物理层设备
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#中继器" class="md-nav__link">
+    中继器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#集线器" class="md-nav__link">
+    集线器
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1376,6 +1414,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#中继器" class="md-nav__link">
+    中继器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#集线器" class="md-nav__link">
+    集线器
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1396,22 +1456,16 @@
 <h1 id="物理层设备">物理层设备<a class="headerlink" href="#物理层设备" title="Permanent link"></a></h1>
 <ul>
 <li>中继器</li>
-<li>
-<p>集线器</p>
-</li>
-<li>
-<p><strong>中继器</strong>
-<img alt="" src="../imags/20.png" />
-<strong>诞生原因</strong>：由于存在损耗，在线路上传输的信号功率会逐渐衰减，衰减到一定程度时将造成信号失真，因此会导致接收错误。
-<strong>中继器功能</strong>：对信号进行再生和还原，对衰减的信号进行放大，保持与原数据相同，以增加信号传输的距离，延长网络的长度。简而言之，就是能够：<strong>再生数字信号</strong>。
-<strong>中继器的两端</strong>：两端的网络部分是网段，而不是子网，适用于完全相同的两类网络的互连，且两个网段速率要相同。中继器只将任何电缆段上的数据发送到另一段电缆上，它仅作用于信号的电气部分，并不管数据中是否有错误数据或不适合网段的数据。<strong>中继器两端的网段一定要是同一个协议（中继器不会存储转发）</strong>。
-<strong>5-4-3规则</strong>：网络标准中都对信号的延迟范围作了具体的规定，因而中继器只能在规定的范围内进行，否则会网络故障。</p>
-</li>
+<li>集线器</li>
 </ul>
+<h2 id="中继器"><strong>中继器</strong><a class="headerlink" href="#中继器" title="Permanent link"></a></h2>
+<p><img alt="" src="../imags/20.png" /></p>
+<p><strong>诞生原因</strong>：由于存在损耗，在线路上传输的信号功率会逐渐衰减，衰减到一定程度时将造成信号失真，因此会导致接收错误。</p>
+<p><strong>中继器功能</strong>：对信号进行再生和还原，对衰减的信号进行放大，保持与原数据相同，以增加信号传输的距离，延长网络的长度。简而言之，就是能够：<strong>再生数字信号</strong>。</p>
+<p><strong>中继器的两端</strong>：两端的网络部分是网段，而不是子网，适用于完全相同的两类网络的互连，且两个网段速率要相同。中继器只将任何电缆段上的数据发送到另一段电缆上，它仅作用于信号的电气部分，并不管数据中是否有错误数据或不适合网段的数据。<strong>中继器两端的网段一定要是同一个协议（中继器不会存储转发）</strong>。</p>
+<p><strong>5-4-3规则</strong>：网络标准中都对信号的延迟范围作了具体的规定，因而中继器只能在规定的范围内进行，否则会网络故障。</p>
 <p><img alt="" src="../imags/19.png" /></p>
-<ol>
-<li><strong>集线器</strong></li>
-</ol>
+<h2 id="集线器"><strong>集线器</strong><a class="headerlink" href="#集线器" title="Permanent link"></a></h2>
 <p><strong>集线器的功能</strong>：对信号进行再生<strong>放大转发</strong>，对衰减的信号进行放大，接着转发到其它所有处于工作状态的端口上，以增加信号的传输距离，延长网络的长度。但<strong>不具备信号的定向传送能力，是一个共享式设备</strong>。集线器不能分割冲突域，连在集线器上的工作主机平分带宽。
 <img alt="" src="../imags/21.png" /></p>
 

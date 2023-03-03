@@ -1,0 +1,178 @@
+site_name: CSNotes
+site_author: Ning
+site_url: https://ningning0111.github.io/CSNotes
+
+theme:
+  name: material
+  # custom_dir: overrrides
+  font:
+    text: Bitter
+  icon:
+    logo: material/library-shelves
+    admonition:
+      <type>: material/file-alert-outline
+
+  favicon: imags/favicon.ico
+  # img/11.ico
+  palette:
+    - primary: blue grey
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # 日间模式
+      primary: blue grey # 上方的
+      accent: cyan # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # 夜间模式
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+  features:
+    - navigation.instant #- header.autohide  #自动隐藏
+    - announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+    - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
+    - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+    #- navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    - navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+    - navigation.expand # 打开Tab时左侧目录全部展开
+    - navigation.indexes #启用节索引页后，可以将文档直接附加到节
+    - search.share #搜索分享按钮
+    - content.tabs.link
+  language: zh # 一些提示性的文字会变成中文
+  icon:
+    repo: fontawesome/brands/github #右上角图标
+repo_url: https://github.com/2043393364/Algorithm-Competition # 右上角点击跳转的链接
+repo_name: GitHub项目地址 # 右上角的名字
+
+nav:
+  - '概述': 'index.md'
+  - '计算机网络':
+    - '第一章：计算机网络概述':
+        - '计算机网络在信息时代的作用': './CN/Chapter_1_introduction/1.计算机网络在信息时代的作用.md'
+        - '因特网的概述': './CN/Chapter_1_introduction/2.因特网的概述.md'
+        - '计算机网络的类别': './CN/Chapter_1_introduction/3.计算机网络的类别.md'
+        - '计算机网络的性能评价指标': './CN/Chapter_1_introduction/4.计算机网络性能评价指标.md'
+        - '计算机网络体系结构': './CN/Chapter_1_introduction/5.计算机网络体系结构.md'
+        - '计算机网络体系结构的专用术语': './CN/Chapter_1_introduction/6.计算机网络体系结构专用术语.md'
+    - '第二章：物理层':
+        - '物理层的基本概念': './CN/Chapter_2_physicalLayer/1.物理层的基本概念.md'
+        - '数据通信基础': './CN/Chapter_2_physicalLayer/2.数据通信的基础知识.md'
+        - '物理层下的传输媒体': './CN/Chapter_2_physicalLayer/3.物理层下面的传输媒体.md'
+        - '编码与调制': './CN/Chapter_2_physicalLayer/4.编码与调制.md'
+        - '物理层设备': './CN/Chapter_2_physicalLayer/5.物理层设备.md'
+    - '第三章：数据链路层':
+        - '数据链路层概述': './CN/Chapter_3_dataLinkLayer/1. 数据链路层概述.md'
+        - '三个基本问题': './CN/Chapter_3_dataLinkLayer/2. 三个基本问题.md'
+        - '可靠传输': './CN/Chapter_3_dataLinkLayer/3. 可靠传输.md'
+        - '点对点PPP协议': './CN/Chapter_3_dataLinkLayer/4. 点对点PPP协议.md'
+  - '数据库系统概论':
+    - '第一章：绪论':
+        - '数据库概念': './DBS/Chapter_1_introduction/01_databaseConcept.md'
+        - '数据模型': './DBS/Chapter_1_introduction/02_dataModel.md'
+        - '数据库系统结构': './DBS/Chapter_1_introduction/03_databaseSystemStructure.md'
+    - '第二章：关系数据库':
+        - '数据结构及其定义': './DBS/Chapter_2_relationDB/01_relationDB_structureAndDefine.md'
+        - '完整性约束': './DBS/Chapter_2_relationDB/02_relationDB_IntegrityConstraint.md'
+        - '数据操纵': './DBS/Chapter_2_relationDB/03_relationDB_control.md'
+  - "MySQL":
+      - '基础篇':
+          - "第01章 数据库概述": "./MySQL/01.DatabaseOverview.md"
+          - "第02章 数据库安装": "./MySQL/02. DatabaseSetUp.md"
+          - "第03章 基本的SELECT语句": "./MySQL/03. SQLbasicStatement.md"
+          - "第04章 运算符": "./MySQL/04. Operator.md"
+          - "第05章 排序与分页": "./MySQL/05. SortAndPage.md"
+          - "第06章 多表查询": "./MySQL/06. Multi-tableQueries.md"
+          - "第07章 单行函数": "./MySQL/07. Function.md"
+          - "第08章 聚合函数": "./MySQL/08. AggregateFunction.md"
+          - "第09章 子查询": "./MySQL/09. Subquery.md"
+          - "第10章 创建和管理表": "./MySQL/10. CreateAndManageTables.md"
+          - "第11章 数据处理之增删改": "./MySQL/11. CDU.md"
+          - "第12章 MySQL数据类型精讲": "./MySQL/12. DataType.md"
+          - "第13章 约束": "./MySQL/13. Constraint.md"
+          - "第14章 视图": "./MySQL/14. View.md"
+          - "第15章 存储过程与函数": "./MySQL/15. StoredProcedures.md"
+          - "第16章 变量、流程控制与游标": "./MySQL/16. VCC.md"
+          - "第17章 触发器": "./MySQL/17. OtherDBlogs.md"
+          - "第18章 MySQL8其它新特性": "./MySQL/18. OtherCharacteristics.md"
+
+
+plugins:
+  - search
+
+# 网站
+#copyright: 2022 - 2023 &emsp;<a href="https://beian.miit.gov.cn/#/Integrated/index">备案/许可证编号:湘ICP备2022024039号</a> </br>copyright &copy; rjkf team & ning
+
+# wiki
+copyright: 2022 - 2023 &emsp; copyright &copy; NingNing7
+
+extra:
+  generator: false  #删除页脚显示“使用 MkDocs 材料制造”
+  social:
+#    - icon: fontawesome/brands/twitter
+#      link: https://twitter.com/wcowin_
+    - icon: fontawesome/brands/github
+      link: https://github.com/2043393364
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<2043393364@qq.com> #联系方式
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  # - meta # 支持Markdown文件上方自定义标题标签等
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format # 代码块高亮插件
+  - pymdownx.arithmatex:  # latex支持
+      generic: true
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      linenums: true # 显示行号
+      # auto_title: true # 显示编程语言名称
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - markdown.extensions.toc:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+      permalink: "\ue157"
+
+extra_javascript:
+  - js/extra.js
+  - js/mathjax.js
+  - mathjax-config.js
+#  - js/backgroud.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+#  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra_css:
+  - css/extra.css
+  - css/video.css
+

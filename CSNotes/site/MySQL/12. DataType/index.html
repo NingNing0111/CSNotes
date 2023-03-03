@@ -1,0 +1,2763 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Ning">
+      
+      
+        <link rel="canonical" href="https://ningning0111.github.io/CSNotes/MySQL/12.%20DataType/">
+      
+      
+        <link rel="prev" href="../11.%20CDU/">
+      
+      
+        <link rel="next" href="../13.%20Constraint/">
+      
+      <link rel="icon" href="../../imags/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+    
+    
+      
+        <title>第12章 MySQL数据类型精讲 - CSNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Bitter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/video.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#第12章-mysql数据类型精讲" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="CSNotes" class="md-header__button md-logo" aria-label="CSNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CSNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第12章 MySQL数据类型精讲
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/2043393364/Algorithm-Competition" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub项目地址
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      概述
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../CN/Chapter_1_introduction/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9C%A8%E4%BF%A1%E6%81%AF%E6%97%B6%E4%BB%A3%E7%9A%84%E4%BD%9C%E7%94%A8/" class="md-tabs__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../DBS/Chapter_1_introduction/01_databaseConcept/" class="md-tabs__link">
+        数据库系统概论
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01.DatabaseOverview/" class="md-tabs__link md-tabs__link--active">
+        MySQL
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CSNotes" class="md-nav__button md-logo" aria-label="CSNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CSNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/2043393364/Algorithm-Competition" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub项目地址
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          计算机网络
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          第一章：计算机网络概述
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          第一章：计算机网络概述
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9C%A8%E4%BF%A1%E6%81%AF%E6%97%B6%E4%BB%A3%E7%9A%84%E4%BD%9C%E7%94%A8/" class="md-nav__link">
+        计算机网络在信息时代的作用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/2.%E5%9B%A0%E7%89%B9%E7%BD%91%E7%9A%84%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        因特网的概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/3.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%B1%BB%E5%88%AB/" class="md-nav__link">
+        计算机网络的类别
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/4.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%80%A7%E8%83%BD%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        计算机网络的性能评价指标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/5.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        计算机网络体系结构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_1_introduction/6.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%93%E7%94%A8%E6%9C%AF%E8%AF%AD/" class="md-nav__link">
+        计算机网络体系结构的专用术语
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          第二章：物理层
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          第二章：物理层
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_2_physicalLayer/1.%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        物理层的基本概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_2_physicalLayer/2.%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        数据通信基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_2_physicalLayer/3.%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93/" class="md-nav__link">
+        物理层下的传输媒体
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_2_physicalLayer/4.%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/" class="md-nav__link">
+        编码与调制
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_2_physicalLayer/5.%E7%89%A9%E7%90%86%E5%B1%82%E8%AE%BE%E5%A4%87/" class="md-nav__link">
+        物理层设备
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          第三章：数据链路层
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          第三章：数据链路层
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_3_dataLinkLayer/1.%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        数据链路层概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_3_dataLinkLayer/2.%20%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        三个基本问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_3_dataLinkLayer/3.%20%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93/" class="md-nav__link">
+        可靠传输
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Chapter_3_dataLinkLayer/4.%20%E7%82%B9%E5%AF%B9%E7%82%B9PPP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        点对点PPP协议
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          数据库系统概论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          数据库系统概论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          第一章：绪论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          第一章：绪论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_1_introduction/01_databaseConcept/" class="md-nav__link">
+        数据库概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_1_introduction/02_dataModel/" class="md-nav__link">
+        数据模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_1_introduction/03_databaseSystemStructure/" class="md-nav__link">
+        数据库系统结构
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          第二章：关系数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          第二章：关系数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_2_relationDB/01_relationDB_structureAndDefine/" class="md-nav__link">
+        数据结构及其定义
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_2_relationDB/02_relationDB_IntegrityConstraint/" class="md-nav__link">
+        完整性约束
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chapter_2_relationDB/03_relationDB_control/" class="md-nav__link">
+        数据操纵
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          MySQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          MySQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          基础篇
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          基础篇
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01.DatabaseOverview/" class="md-nav__link">
+        第01章 数据库概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02.%20DatabaseSetUp/" class="md-nav__link">
+        第02章 数据库安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03.%20SQLbasicStatement/" class="md-nav__link">
+        第03章 基本的SELECT语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04.%20Operator/" class="md-nav__link">
+        第04章 运算符
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05.%20SortAndPage/" class="md-nav__link">
+        第05章 排序与分页
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06.%20Multi-tableQueries/" class="md-nav__link">
+        第06章 多表查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07.%20Function/" class="md-nav__link">
+        第07章 单行函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08.%20AggregateFunction/" class="md-nav__link">
+        第08章 聚合函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09.%20Subquery/" class="md-nav__link">
+        第09章 子查询
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.%20CreateAndManageTables/" class="md-nav__link">
+        第10章 创建和管理表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.%20CDU/" class="md-nav__link">
+        第11章 数据处理之增删改
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          第12章 MySQL数据类型精讲
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        第12章 MySQL数据类型精讲
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mysql中的数据类型" class="md-nav__link">
+    1. MySQL中的数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-整数类型" class="md-nav__link">
+    2. 整数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 整数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-类型介绍" class="md-nav__link">
+    2.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-可选属性" class="md-nav__link">
+    2.2 可选属性
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 可选属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-m" class="md-nav__link">
+    2.2.1 M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-unsigned" class="md-nav__link">
+    2.2.2 UNSIGNED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-zerofill" class="md-nav__link">
+    2.2.3 ZEROFILL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-适用场景" class="md-nav__link">
+    2.3 适用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-如何选择" class="md-nav__link">
+    2.4 如何选择？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-浮点类型" class="md-nav__link">
+    3. 浮点类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 浮点类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-类型介绍" class="md-nav__link">
+    3.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-数据精度说明" class="md-nav__link">
+    3.2 数据精度说明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-定点数类型" class="md-nav__link">
+    4. 定点数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 定点数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-类型介绍" class="md-nav__link">
+    4.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-开发中经验" class="md-nav__link">
+    4.2 开发中经验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-位类型bit" class="md-nav__link">
+    5. 位类型：BIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-日期与时间类型" class="md-nav__link">
+    6. 日期与时间类型
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 日期与时间类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-year类型" class="md-nav__link">
+    6.1 YEAR类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-date类型" class="md-nav__link">
+    6.2 DATE类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-time类型" class="md-nav__link">
+    6.3 TIME类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-timestamp类型" class="md-nav__link">
+    6.5 TIMESTAMP类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-开发中经验" class="md-nav__link">
+    6.6 开发中经验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-文本字符串类型" class="md-nav__link">
+    7. 文本字符串类型
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 文本字符串类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-char与varchar类型" class="md-nav__link">
+    7.1 CHAR与VARCHAR类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-text类型" class="md-nav__link">
+    7.2 TEXT类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-enum类型" class="md-nav__link">
+    8. ENUM类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-set类型" class="md-nav__link">
+    9. SET类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-二进制字符串类型" class="md-nav__link">
+    10. 二进制字符串类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-json-类型" class="md-nav__link">
+    11. JSON 类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-空间类型" class="md-nav__link">
+    12. 空间类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-小结及选择建议" class="md-nav__link">
+    13. 小结及选择建议
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.%20Constraint/" class="md-nav__link">
+        第13章 约束
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.%20View/" class="md-nav__link">
+        第14章 视图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15.%20StoredProcedures/" class="md-nav__link">
+        第15章 存储过程与函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16.%20VCC/" class="md-nav__link">
+        第16章 变量、流程控制与游标
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17.%20OtherDBlogs/" class="md-nav__link">
+        第17章 触发器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18.%20OtherCharacteristics/" class="md-nav__link">
+        第18章 MySQL8其它新特性
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mysql中的数据类型" class="md-nav__link">
+    1. MySQL中的数据类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-整数类型" class="md-nav__link">
+    2. 整数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 整数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-类型介绍" class="md-nav__link">
+    2.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-可选属性" class="md-nav__link">
+    2.2 可选属性
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 可选属性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-m" class="md-nav__link">
+    2.2.1 M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-unsigned" class="md-nav__link">
+    2.2.2 UNSIGNED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-zerofill" class="md-nav__link">
+    2.2.3 ZEROFILL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-适用场景" class="md-nav__link">
+    2.3 适用场景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-如何选择" class="md-nav__link">
+    2.4 如何选择？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-浮点类型" class="md-nav__link">
+    3. 浮点类型
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 浮点类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-类型介绍" class="md-nav__link">
+    3.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-数据精度说明" class="md-nav__link">
+    3.2 数据精度说明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-定点数类型" class="md-nav__link">
+    4. 定点数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 定点数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-类型介绍" class="md-nav__link">
+    4.1 类型介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-开发中经验" class="md-nav__link">
+    4.2 开发中经验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-位类型bit" class="md-nav__link">
+    5. 位类型：BIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-日期与时间类型" class="md-nav__link">
+    6. 日期与时间类型
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 日期与时间类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-year类型" class="md-nav__link">
+    6.1 YEAR类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-date类型" class="md-nav__link">
+    6.2 DATE类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-time类型" class="md-nav__link">
+    6.3 TIME类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-timestamp类型" class="md-nav__link">
+    6.5 TIMESTAMP类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-开发中经验" class="md-nav__link">
+    6.6 开发中经验
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-文本字符串类型" class="md-nav__link">
+    7. 文本字符串类型
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 文本字符串类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-char与varchar类型" class="md-nav__link">
+    7.1 CHAR与VARCHAR类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-text类型" class="md-nav__link">
+    7.2 TEXT类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-enum类型" class="md-nav__link">
+    8. ENUM类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-set类型" class="md-nav__link">
+    9. SET类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-二进制字符串类型" class="md-nav__link">
+    10. 二进制字符串类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-json-类型" class="md-nav__link">
+    11. JSON 类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-空间类型" class="md-nav__link">
+    12. 空间类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-小结及选择建议" class="md-nav__link">
+    13. 小结及选择建议
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="第12章-mysql数据类型精讲">第12章 MySQL数据类型精讲<a class="headerlink" href="#第12章-mysql数据类型精讲" title="Permanent link"></a></h1>
+<h2 id="1-mysql中的数据类型"><strong>1. MySQL中的数据类型</strong><a class="headerlink" href="#1-mysql中的数据类型" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>类型举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整数类型</td>
+<td>TINYINT、SMALLINT、MEDIUMINT、<strong>INT(或INTEGER)</strong>、BIGINT</td>
+</tr>
+<tr>
+<td>浮点类型</td>
+<td>FLOAT、DOUBLE</td>
+</tr>
+<tr>
+<td>定点数类型</td>
+<td><strong>DECIMAL</strong></td>
+</tr>
+<tr>
+<td>位类型</td>
+<td>BIT</td>
+</tr>
+<tr>
+<td>日期时间类型</td>
+<td>YEAR、TIME、DATE、<strong>DATETIME</strong>、TIMESTAMP</td>
+</tr>
+<tr>
+<td>文本字符串类型</td>
+<td>CHAR、<strong>VARCHAR</strong>、TINYTEXT、TEXT、MEDIUMTEXT、LONGTEXT</td>
+</tr>
+<tr>
+<td>枚举类型</td>
+<td>ENUM</td>
+</tr>
+<tr>
+<td>集合类型</td>
+<td>SET</td>
+</tr>
+<tr>
+<td>二进制字符串类</td>
+<td>BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB、LONGBLOB</td>
+</tr>
+<tr>
+<td>JSON类型</td>
+<td>JSON对象、JSON数组</td>
+</tr>
+<tr>
+<td>空间数据类型</td>
+<td>单值：GEOMETRY、POINT、LINESTRING、POLYGON；<br />集合：MULTIPOINT、MULTILINESTRING、MULTIPOLYGON、GEOMETRYCOLLECTION</td>
+</tr>
+</tbody>
+</table>
+<p>常见数据类型的属性，如下：</p>
+<table>
+<thead>
+<tr>
+<th>MySQL关键字</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NULL</td>
+<td>数据列可包含NULL值</td>
+</tr>
+<tr>
+<td>NOT NULL</td>
+<td>数据列不允许包含NULL值</td>
+</tr>
+<tr>
+<td>DEFAULT</td>
+<td>默认值</td>
+</tr>
+<tr>
+<td>PRIMARY KEY</td>
+<td>主键</td>
+</tr>
+<tr>
+<td>AUTO_INCREMENT</td>
+<td>自动递增，适用于整数类型</td>
+</tr>
+<tr>
+<td>UNSIGNED</td>
+<td>无符号</td>
+</tr>
+<tr>
+<td>CHARACTER SET name</td>
+<td>指定一个字符集</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-整数类型"><strong>2.</strong> <strong>整数类型</strong><a class="headerlink" href="#2-整数类型" title="Permanent link"></a></h2>
+<h3 id="21-类型介绍"><strong>2.1</strong> <strong>类型介绍</strong><a class="headerlink" href="#21-类型介绍" title="Permanent link"></a></h3>
+<p>整数类型一共有 5 种，包括 TINYINT、SMALLINT、MEDIUMINT、INT（INTEGER）和 BIGINT。</p>
+<table>
+<thead>
+<tr>
+<th>整数类型</th>
+<th>字节</th>
+<th>有符号数取值范围</th>
+<th>无符号数取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>-128~127</td>
+<td>0~255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>-32768~32767</td>
+<td>0~65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>-8388608~8388607</td>
+<td>0~16777215</td>
+</tr>
+<tr>
+<td>INT、INTEGER</td>
+<td>4</td>
+<td>-2147483648~2147483647</td>
+<td>0~4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>-9223372036854775808~9223372036854775807</td>
+<td>0~18446744073709551615</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-可选属性"><strong>2.2</strong> <strong>可选属性</strong><a class="headerlink" href="#22-可选属性" title="Permanent link"></a></h3>
+<p><strong>整数类型的可选属性有三个：</strong></p>
+<h4 id="221-m"><strong>2.2.1 M</strong><a class="headerlink" href="#221-m" title="Permanent link"></a></h4>
+<p><code>M</code>: 表示显示宽度，M的取值范围是(0, 255)。例如，int(5)：当数据宽度小于5位的时候在数字前面需要用字符填满宽度。该项功能需要配合“<code>ZEROFILL</code>”使用，表示用“0”填满宽度，否则指定显示宽度无效。</p>
+<p>如果设置了显示宽度，那么插入的数据宽度超过显示宽度限制，会不会截断或插入失败？</p>
+<p>答案：不会对插入的数据有任何影响，还是按照类型的实际宽度进行保存，即<code>显示宽度与类型可以存储的值范围无关</code>。<strong>从MySQL 8.0.17开始，整数数据类型不推荐使用显示宽度属性。</strong></p>
+<h4 id="222-unsigned"><strong>2.2.2 UNSIGNED</strong><a class="headerlink" href="#222-unsigned" title="Permanent link"></a></h4>
+<p><code>UNSIGNED</code>: 无符号类型（非负），所有的整数类型都有一个可选的属性UNSIGNED（无符号属性），无符号整数类型的最小取值为0。所以，如果需要在MySQL数据库中保存非负整数值时，可以将整数类型设置为无符号类型。</p>
+<blockquote>
+<p>int类型默认显示宽度为int(11)，无符号int类型默认显示宽度为int(10)。因为负号占了一个数字位。</p>
+</blockquote>
+<h4 id="223-zerofill"><strong>2.2.3 ZEROFILL</strong><a class="headerlink" href="#223-zerofill" title="Permanent link"></a></h4>
+<p><code>ZEROFILL</code>: 0填充,（如果某列是ZEROFILL，那么MySQL会自动为当前列添加UNSIGNED属性），如果指定了ZEROFILL只是表示不够M位时，用0在左边填充，如果超过M位，只要不超过数据存储范围即可。</p>
+<h3 id="23-适用场景"><strong>2.3</strong> <strong>适用场景</strong><a class="headerlink" href="#23-适用场景" title="Permanent link"></a></h3>
+<p><code>TINYINT</code>：一般用于枚举数据，比如系统设定取值范围很小且固定的场景。</p>
+<p><code>SMALLINT</code>：可以用于较小范围的统计数据，比如统计工厂的固定资产库存数量等。</p>
+<p><code>MEDIUMINT</code>：用于较大整数的计算，比如车站每日的客流量等。</p>
+<p><code>INT、INTEGER</code>：取值范围足够大，一般情况下不用考虑超限问题，用得最多。比如商品编号。</p>
+<p><code>BIGINT</code>：只有当你处理特别巨大的整数时才会用到。比如双十一的交易量、大型门户网站点击量、证券公司衍生产品持仓等。</p>
+<h3 id="24-如何选择"><strong>2.4</strong> <strong>如何选择？</strong><a class="headerlink" href="#24-如何选择" title="Permanent link"></a></h3>
+<p>在评估用哪种整数类型的时候，你需要考虑<code>存储空间</code>和<code>可靠性</code>的平衡问题：一方 面，用占用字节数少的整数类型可以节省存储空间；另一方面，要是为了节省存储空间，使用的整数类型取值范围太小，一旦遇到超出取值范围的情况，就可能引起<code>系统错误</code>，影响可靠性。</p>
+<p>举个例子，商品编号采用的数据类型是 INT。原因就在于，客户门店中流通的商品种类较多，而且，每天都有旧商品下架，新商品上架，这样不断迭代，日积月累。</p>
+<p>如果使用 SMALLINT 类型，虽然占用字节数比 INT 类型的整数少，但是却不能保证数据不会超出范围65535。相反，使用 INT，就能确保有足够大的取值范围，不用担心数据超出范围影响可靠性的问题。</p>
+<p>你要注意的是，在实际工作中，<strong>系统故障产生的成本远远超过增加几个字段存储空间所产生的成本</strong>。因此，我建议你首先确保数据不会超过取值范围，在这个前提之下，再去考虑如何节省存储空间。</p>
+<h2 id="3-浮点类型"><strong>3.</strong> <strong>浮点类型</strong><a class="headerlink" href="#3-浮点类型" title="Permanent link"></a></h2>
+<h3 id="31-类型介绍"><strong>3.1</strong> <strong>类型介绍</strong><a class="headerlink" href="#31-类型介绍" title="Permanent link"></a></h3>
+<p>浮点数和定点数类型的特点是可以<code>处理小数</code>，你可以把整数看成小数的一个特例。</p>
+<ul>
+<li>FLOAT 表示单精度浮点数；</li>
+<li>DOUBLE 表示双精度浮点数；</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>占用字节数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FLOAT</td>
+<td>4</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>REAL默认就是 DOUBLE。如果你把 SQL 模式设定为启用“<code>REAL_AS_FLOAT</code>”，那 么，MySQL 就认为REAL 是 FLOAT。如果要启用“REAL_AS_FLOAT”，可以通过以下 SQL 语句实现：</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">SET</span><span class="w"> </span><span class="n">sql_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">REAL_AS_FLOAT</span><span class="err">”</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>问题1：</strong>FLOAT 和 DOUBLE 这两种数据类型的区别是啥呢？</p>
+<p>FLOAT 占用字节数少，取值范围小；DOUBLE 占用字节数多，取值范围也大。</p>
+<p><strong>问题2</strong>：为什么浮点数类型的无符号数取值范围，只相当于有符号数取值范围的一半，也就是只相当于有符号数取值范围大于等于零的部分呢？</p>
+<p>MySQL 存储浮点数的格式为：<code>符号(S) 、 尾数(M) 和 阶码(E)</code>。因此，无论有没有符号，MySQL 的浮点数都会存储表示符号的部分。因此， 所谓的无符号数取值范围，其实就是有符号数取值范围大于等于零的部分。</p>
+<h3 id="32-数据精度说明"><strong>3.2</strong> <strong>数据精度说明</strong><a class="headerlink" href="#32-数据精度说明" title="Permanent link"></a></h3>
+<p>对于浮点类型，在MySQL中单精度值使用<code>4</code>个字节，双精度值使用<code>8</code>个字节。</p>
+<ul>
+<li>MySQL允许使用<code>非标准语法</code>（其他数据库未必支持，因此如果涉及到数据迁移，则最好不要这么用）：<code>FLOAT(M,D)</code>或<code>DOUBLE(M,D)</code>。这里，M称为<code>精度</code>，D称为<code>标度</code>。(M,D)中 M=整数位+小数位，D=小数位。 D&lt;=M&lt;=255，0&lt;=D&lt;=30。</li>
+</ul>
+<p>例如，定义为FLOAT(5,2)的一个列可以显示为-999.99-999.99。如果超过这个范围会报错。</p>
+<ul>
+<li>
+<p>FLOAT和DOUBLE类型在不指定(M,D)时，默认会按照实际的精度（由实际的硬件和操作系统决定）来显示。</p>
+</li>
+<li>
+<p>说明：浮点类型，也可以加<code>UNSIGNED</code>，但是不会改变数据范围，例如：FLOAT(3,2) UNSIGNED仍然只能表示0-9.99的范围。</p>
+</li>
+<li>
+<p>不管是否显式设置了精度(M,D)，这里MySQL的处理方案如下：</p>
+</li>
+<li>
+<p>如果存储时，整数部分超出了范围，MySQL就会报错，不允许存这样的值</p>
+</li>
+<li>
+<p>如果存储时，小数点部分若超出范围，就分以下情况：</p>
+<ul>
+<li>若四舍五入后，整数部分没有超出范围，则只警告，但能成功操作并四舍五入删除多余的小数位后保存。例如在FLOAT(5,2)列内插入999.009，近似结果是999.01。</li>
+<li>若四舍五入后，整数部分超出范围，则MySQL报错，并拒绝处理。如FLOAT(5,2)列内插入999.995和-999.995都会报错。</li>
+</ul>
+</li>
+<li>
+<p><strong>从MySQL 8.0.17开始，FLOAT(M,D)和DOUBLE(M,D)用法在官方文档中已经明确不推荐使用</strong>，将来可能被移除。另外，关于浮点型FLOAT和DOUBLE的UNSIGNED也不推荐使用了，将来也可能被移除。</p>
+</li>
+</ul>
+<blockquote>
+<p>在编程中，如果用到浮点数，要特别注意误差问题，<strong>因为浮点数是不准确的，所以我们要避免使用“=”来判断两个数是否相等。</strong></p>
+</blockquote>
+<h2 id="4-定点数类型"><strong>4.</strong> <strong>定点数类型</strong><a class="headerlink" href="#4-定点数类型" title="Permanent link"></a></h2>
+<h3 id="41-类型介绍"><strong>4.1</strong> <strong>类型介绍</strong><a class="headerlink" href="#41-类型介绍" title="Permanent link"></a></h3>
+<ul>
+<li>MySQL中的定点数类型只有 DECIMAL 一种类型。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DECIMAL(M,D),DEC,NUMERIC</td>
+<td>M+2字节</td>
+<td>有效范围由M和D决定</td>
+</tr>
+</tbody>
+</table>
+<p>使用 DECIMAL(M,D) 的方式表示高精度小数。其中，M被称为精度，D被称为标度。0&lt;=M&lt;=65， 0&lt;=D&lt;=30，D&lt;M。例如，定义DECIMAL（5,2）的类型，表示该列取值范围是-999.99~999.99。</p>
+<ul>
+<li>
+<p><strong>DECIMAL(M,D)的最大取值范围与DOUBLE类型一样</strong>，但是有效的数据范围是由M和D决定的。</p>
+</li>
+<li>
+<p>定点数在MySQL内部是以 字符串 的形式进行存储，这就决定了它一定是精准的。</p>
+</li>
+<li>当DECIMAL类型不指定精度和标度时，其默认为DECIMAL(10,0)。当数据的精度超出了定点数类型的精度范围时，则MySQL同样会进行四舍五入处理。</li>
+<li><strong>浮点数</strong> <strong>vs</strong> <strong>定点数</strong></li>
+<li>浮点数相对于定点数的优点是在长度一定的情况下，浮点类型取值范围大，但是不精准，适用于需要取值范围大，又可以容忍微小误差的科学计算场景（比如计算化学、分子建模、流体动力学等）</li>
+<li>定点数类型取值范围相对小，但是精准，没有误差，适合于对精度要求极高的场景 （比如涉及金额计算的场景）</li>
+</ul>
+<h3 id="42-开发中经验"><strong>4.2</strong> <strong>开发中经验</strong><a class="headerlink" href="#42-开发中经验" title="Permanent link"></a></h3>
+<blockquote>
+<p>“由于 DECIMAL 数据类型的精准性，在我们的项目中，除了极少数（比如商品编号）用到整数类型外，其他的数值都用的是 DECIMAL，原因就是这个项目所处的零售行业，要求精准，一分钱也不能差。 ” ——来自某项目经理</p>
+</blockquote>
+<h2 id="5-位类型bit"><strong>5.</strong> <strong>位类型：BIT</strong><a class="headerlink" href="#5-位类型bit" title="Permanent link"></a></h2>
+<p>BIT类型中存储的是二进制值，类似010110。</p>
+<table>
+<thead>
+<tr>
+<th>二进制字符串类型</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BIT(M)</td>
+<td>M</td>
+<td>1 &lt;= M &lt;= 64</td>
+<td>约为(M + 7)/8个字节</td>
+</tr>
+</tbody>
+</table>
+<p>BIT类型，如果没有指定(M)，默认是1位。这个1位，表示只能存1位的二进制值。这里(M)是表示二进制的位数，位数最小值为1，最大值为64。</p>
+<blockquote>
+<p>使用b+0查询数据时，可以直接查询出存储的十进制数据的值。</p>
+</blockquote>
+<h2 id="6-日期与时间类型"><strong>6.</strong> <strong>日期与时间类型</strong><a class="headerlink" href="#6-日期与时间类型" title="Permanent link"></a></h2>
+<p>MySQL有多种表示日期和时间的数据类型，不同的版本可能有所差异，MySQL8.0版本支持的日期和时间类型主要有：YEAR类型、TIME类型、DATE类型、DATETIME类型和TIMESTAMP类型。</p>
+<ul>
+<li><code>YEAR</code>类型通常用来表示年</li>
+<li><code>DATE</code>类型通常用来表示年、月、日</li>
+<li><code>TIME</code>类型通常用来表示时、分、秒</li>
+<li><code>DATETIME</code>类型通常用来表示年、月、日、时、分、秒</li>
+<li><code>TIMESTAMP</code>类型通常用来表示带时区的年、月、日、时、分、秒</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>字节</th>
+<th>日期格式</th>
+<th>最小值</th>
+<th>最大值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YEAR</td>
+<td>年</td>
+<td>1</td>
+<td>YYYY或YY</td>
+<td>1901</td>
+<td>2155</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>时间</td>
+<td>3</td>
+<td>HH:MM:SS</td>
+<td>-838:59:59</td>
+<td>838:59:59</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>日期</td>
+<td>3</td>
+<td>YYYY-MM-DD</td>
+<td>1000-01-01</td>
+<td>9999-12-03</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>日期时间</td>
+<td>8</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1000-01-01  00:00:00</td>
+<td>9999-12-31 23:59:59</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>日期时间</td>
+<td>4</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1970-01-01 00:00:00 UTC</td>
+<td>2038-01-19 03:14:07UTC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="61-year类型"><strong>6.1 YEAR类型</strong><a class="headerlink" href="#61-year类型" title="Permanent link"></a></h3>
+<p>YEAR类型用来表示年份，在所有的日期时间类型中所占用的存储空间最小，只需要<code>1个字节</code>的存储空间。</p>
+<p>在MySQL中，YEAR有以下几种存储格式：</p>
+<ul>
+<li>以4位字符串或数字格式表示YEAR类型，其格式为YYYY，最小值为1901，最大值为2155。</li>
+<li>以2位字符串格式表示YEAR类型，最小值为00，最大值为99。</li>
+<li>当取值为01到69时，表示2001到2069；</li>
+<li>当取值为70到99时，表示1970到1999；</li>
+<li>当取值整数的0或00添加的话，那么是0000年；</li>
+<li>当取值是日期/字符串的'0'添加的话，是2000年。</li>
+</ul>
+<p><strong>从MySQL5.5.27开始，2位格式的YEAR已经不推荐使用</strong>。</p>
+<h3 id="62-date类型"><strong>6.2 DATE类型</strong><a class="headerlink" href="#62-date类型" title="Permanent link"></a></h3>
+<p>DATE类型表示日期，没有时间部分，格式为<code>YYYY-MM-DD</code>，其中，YYYY表示年份，MM表示月份，DD表示日期。需要<code>3个字节</code>的存储空间。在向DATE类型的字段插入数据时，同样需要满足一定的格式条件。</p>
+<ul>
+<li>以<code>YYYY-MM-DD</code>格式或者<code>YYYYMMDD</code>格式表示的字符串日期，其最小取值为1000-01-01，最大取值为9999-12-03。YYYYMMDD格式会被转化为YYYY-MM-DD格式。</li>
+<li>以<code>YY-MM-DD</code>格式或者<code>YYMMDD</code>格式表示的字符串日期，此格式中，年份为两位数值或字符串满足YEAR类型的格式条件为：当年份取值为00到69时，会被转化为2000到2069；当年份取值为70到99时，会被转化为1970到1999。</li>
+<li>使用<code>CURRENT_DATE()</code>或者<code>NOW()</code>函数，会插入当前系统的日期。</li>
+</ul>
+<h3 id="63-time类型"><strong>6.3 TIME类型</strong><a class="headerlink" href="#63-time类型" title="Permanent link"></a></h3>
+<p>TIME类型用来表示时间，不包含日期部分。在MySQL中，需要<code>3个字节</code>的存储空间来存储TIME类型的数据，可以使用“HH:MM:SS”格式来表示TIME类型，其中，HH表示小时，MM表示分钟，SS表示秒。</p>
+<p>在MySQL中，向TIME类型的字段插入数据时，也可以使用几种不同的格式。 （1）可以使用带有冒号的字符串，比如'<code>D HH:MM:SS</code>'、'<code>HH:MM:SS</code>'、'<code>HH:MM</code>'、'<code>D HH:MM</code>'、'<code>D HH</code>'或'<code>SS</code>'格式，都能被正确地插入TIME类型的字段中。其中D表示天，其最小值为0，最大值为34。如果使用带有D格式的字符串插入TIME类型的字段时，D会被转化为小时，计算格式为D*24+HH。当使用带有冒号并且不带D的字符串表示时间时，表示当天的时间，比如12:10表示12:10:00，而不是00:12:10。 （2）可以使用不带有冒号的字符串或者数字，格式为'<code>HHMMSS</code>'或者<code>HHMMSS</code>。如果插入一个不合法的字符串或者数字，MySQL在存储数据时，会将其自动转化为00:00:00进行存储。比如1210，MySQL会将最右边的两位解析成秒，表示00:12:10，而不是12:10:00。 （3）使用<code>CURRENT_TIME()</code>或者<code>NOW()</code>，会插入当前系统的时间。</p>
+<p><strong>6.4 DATETIME类型</strong></p>
+<p>DATETIME类型在所有的日期时间类型中占用的存储空间最大，总共需要<code>8</code>个字节的存储空间。在格式上为DATE类型和TIME类型的组合，可以表示为<code>YYYY-MM-DD HH:MM:SS</code>，其中YYYY表示年份，MM表示月份，DD表示日期，HH表示小时，MM表示分钟，SS表示秒。</p>
+<p>在向DATETIME类型的字段插入数据时，同样需要满足一定的格式条件。</p>
+<ul>
+<li>以<code>YYYY-MM-DD HH:MM:SS</code>格式或者<code>YYYYMMDDHHMMSS</code>格式的字符串插入DATETIME类型的字段时，最小值为1000-01-01 00:00:00，最大值为9999-12-03 23:59:59。</li>
+<li>以YYYYMMDDHHMMSS格式的数字插入DATETIME类型的字段时，会被转化为YYYY-MM-DD HH:MM:SS格式。</li>
+<li>以 YY-MM-DD HH:MM:SS 格式或者 YYMMDDHHMMSS 格式的字符串插入DATETIME类型的字段时，两位数的年份规则符合YEAR类型的规则，00到69表示2000到2069；70到99表示1970到1999。</li>
+<li>使用函数<code>CURRENT_TIMESTAMP()</code>和<code>NOW()</code>，可以向DATETIME类型的字段插入系统的当前日期和时间。</li>
+</ul>
+<h3 id="65-timestamp类型"><strong>6.5 TIMESTAMP类型</strong><a class="headerlink" href="#65-timestamp类型" title="Permanent link"></a></h3>
+<p>TIMESTAMP类型也可以表示日期时间，其显示格式与DATETIME类型相同，都是<code>YYYY-MM-DD HH:MM:SS</code>，需要4个字节的存储空间。但是TIMESTAMP存储的时间范围比DATETIME要小很多，只能存储“1970-01-01 00:00:01 UTC”到“2038-01-19 03:14:07 UTC”之间的时间。其中，UTC表示世界统一时间，也叫作世界标准时间。</p>
+<ul>
+<li><strong>存储数据的时候需要对当前时间所在的时区进行转换，查询数据的时候再将时间转换回当前的时区。因此，使用TIMESTAMP存储的同一个时间值，在不同的时区查询时会显示不同的时间。</strong></li>
+</ul>
+<p><strong>TIMESTAMP和DATETIME的区别：</strong></p>
+<ul>
+<li>TIMESTAMP存储空间比较小，表示的日期时间范围也比较小</li>
+<li>底层存储方式不同，TIMESTAMP底层存储的是毫秒值，距离1970-1-1 0:0:0 0毫秒的毫秒值。</li>
+<li>两个日期比较大小或日期计算时，TIMESTAMP更方便、更快。</li>
+<li>TIMESTAMP和时区有关。TIMESTAMP会根据用户的时区不同，显示不同的结果。而DATETIME则只能反映出插入时当地的时区，其他时区的人查看数据必然会有误差的。</li>
+</ul>
+<h3 id="66-开发中经验"><strong>6.6</strong> <strong>开发中经验</strong><a class="headerlink" href="#66-开发中经验" title="Permanent link"></a></h3>
+<p>用得最多的日期时间类型，就是<code>DATETIME</code>。虽然 MySQL 也支持 YEAR（年）、 TIME（时间）、DATE（日期），以及 TIMESTAMP 类型，但是在实际项目中，尽量用 DATETIME 类型。因为这个数据类型包括了完整的日期和时间信息，取值范围也最大，使用起来比较方便。毕竟，如果日期时间信息分散在好几个字段，很不容易记，而且查询的时候，SQL 语句也会更加复杂。</p>
+<p>此外，一般存注册时间、商品发布时间等，不建议使用DATETIME存储，而是使用<code>时间戳</code>，因为DATETIME虽然直观，但不便于计算。</p>
+<h2 id="7-文本字符串类型"><strong>7.</strong> <strong>文本字符串类型</strong><a class="headerlink" href="#7-文本字符串类型" title="Permanent link"></a></h2>
+<h3 id="71-char与varchar类型"><strong>7.1 CHAR与VARCHAR类型</strong><a class="headerlink" href="#71-char与varchar类型" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>字符串(文本)类型</th>
+<th>特点</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用的存储空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(M)</td>
+<td>固定长度</td>
+<td>M</td>
+<td>0 &lt;= M &lt;= 255</td>
+<td>M个字节</td>
+</tr>
+<tr>
+<td>VARCHAR(M)</td>
+<td>可变长度</td>
+<td>M</td>
+<td>0 &lt;= M &lt;= 65535</td>
+<td>(实际长度 + 1) 个字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CHAR类型：</strong></p>
+<ul>
+<li>CHAR(M) 类型一般需要预先定义字符串长度。如果不指定(M)，则表示长度默认是1个字符。</li>
+<li>如果保存时，数据的实际长度比CHAR类型声明的长度小，则会在<code>右侧填充</code>空格以达到指定的长度。当MySQL检索CHAR类型的数据时，CHAR类型的字段会去除尾部的空格。</li>
+<li>定义CHAR类型字段时，声明的字段长度即为CHAR类型字段所占的存储空间的字节数。</li>
+</ul>
+<p><strong>VARCHAR类型：</strong></p>
+<ul>
+<li>VARCHAR(M) 定义时，<code>必须指定</code>长度M，否则报错。</li>
+<li>MySQL4.0版本以下，varchar(20)：指的是20字节，如果存放UTF8汉字时，只能存6个（每个汉字3字节） ；MySQL5.0版本以上，varchar(20)：指的是20字符。</li>
+<li>检索VARCHAR类型的字段数据时，会保留数据尾部的空格。VARCHAR类型的字段所占用的存储空间为字符串实际长度加1个字节。</li>
+</ul>
+<p><strong>哪些情况使用</strong> <strong>CHAR</strong> <strong>或</strong> <strong>VARCHAR</strong> <strong>更好</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特点</th>
+<th>空间上</th>
+<th>时间上</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(M)</td>
+<td>固定长度</td>
+<td>浪费存储空间</td>
+<td>效率高</td>
+<td>存储不大，速度要求高</td>
+</tr>
+<tr>
+<td>VARCHAR(M)</td>
+<td>可变长度</td>
+<td>节省存储空间</td>
+<td>效率低</td>
+<td>非CHAR的情况</td>
+</tr>
+</tbody>
+</table>
+<p>情况1：存储很短的信息。比如门牌号码101，201……这样很短的信息应该用char，因为varchar还要占个byte用于存储信息长度，本来打算节约存储的，结果得不偿失。</p>
+<p>情况2：固定长度的。比如使用uuid作为主键，那用char应该更合适。因为他固定长度，varchar动态根据长度的特性就消失了，而且还要占个长度信息。</p>
+<p>情况3：十分频繁改变的column。因为varchar每次存储都要有额外的计算，得到长度等工作，如果一个非常频繁改变的，那就要有很多的精力用于计算，而这些对于char来说是不需要的。</p>
+<p>情况4：具体存储引擎中的情况：</p>
+<ul>
+<li><code>MyISAM</code>数据存储引擎和数据列：MyISAM数据表，最好使用固定长度(CHAR)的数据列代替可变长度(VARCHAR)的数据列。这样使得整个表静态化，从而使<code>数据检索更快</code>，用空间换时间。</li>
+<li><code>MEMORY</code>存储引擎和数据列：MEMORY数据表目前都使用固定长度的数据行存储，因此无论使用CHAR或VARCHAR列都没有关系，两者都是作为CHAR类型处理的。</li>
+<li>InnoDB 存储引擎，建议使用VARCHAR类型。因为对于InnoDB数据表，内部的行存储格式并没有区分固定长度和可变长度列（所有数据行都使用指向数据列值的头指针），而且<strong>主要影响性能的因素是数据行使用的存储总量</strong>，由于char平均占用的空间多于varchar，所以除了简短并且固定长度的，其他考虑varchar。这样节省空间，对磁盘I/O和数据存储总量比较好。</li>
+</ul>
+<h3 id="72-text类型"><strong>7.2 TEXT类型</strong><a class="headerlink" href="#72-text类型" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>文本字符串类型</th>
+<th>特点</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用的存储空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYTEXT</td>
+<td>小文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 255</td>
+<td>L + 2 个字节</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 65535</td>
+<td>L + 2 个字节</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>中等文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 16777215</td>
+<td>L + 3 个字节</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>大文本、可变长度</td>
+<td>L</td>
+<td>0 &lt;= L&lt;= 4294967295（相当于4GB）</td>
+<td>L + 4 个字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>由于实际存储的长度不确定，MySQL不允许</strong> <strong>TEXT</strong> <strong>类型的字段做主键</strong>。遇到这种情况，你只能采用CHAR(M)，或者 VARCHAR(M)。</p>
+<p><strong>开发中经验：</strong></p>
+<p>TEXT文本类型，可以存比较大的文本段，搜索速度稍慢，因此如果不是特别大的内容，建议使用CHAR， VARCHAR来代替。还有TEXT类型不用加默认值，加了也没用。而且text和blob类型的数据删除后容易导致“空洞”，使得文件碎片比较多，所以频繁使用的表不建议包含TEXT类型字段，建议单独分出去，单独用一个表。</p>
+<h2 id="8-enum类型"><strong>8. ENUM类型</strong><a class="headerlink" href="#8-enum类型" title="Permanent link"></a></h2>
+<p>ENUM类型也叫作枚举类型，ENUM类型的取值范围需要在定义字段时进行指定。设置字段值时，ENUM类型只允许从成员中选取单个值，不能一次选取多个值。</p>
+<table>
+<thead>
+<tr>
+<th>文本字符串类型</th>
+<th>长度</th>
+<th>长度范围</th>
+<th>占用的存储空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENUM</td>
+<td>L</td>
+<td>1 &lt;= L &lt;= 65535</td>
+<td>1或2个字节</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>当ENUM类型包含1～255个成员时，需要1个字节的存储空间；</li>
+<li>当ENUM类型包含256～65535个成员时，需要2个字节的存储空间。</li>
+<li>ENUM类型的成员个数的上限为65535个。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_enum</span><span class="p">(</span><span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">season</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;春&#39;</span><span class="p">,</span><span class="s1">&#39;夏&#39;</span><span class="p">,</span><span class="s1">&#39;秋&#39;</span><span class="p">,</span><span class="s1">&#39;冬&#39;</span><span class="p">,</span><span class="s1">&#39;unknow&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_enum</span><span class="w"> </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;春&#39;</span><span class="p">),(</span><span class="s1">&#39;秋&#39;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="o">#</span><span class="w"> </span><span class="err">允许按照角标的方式获取指定索引位置的枚举值</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_enum</span><span class="w"> </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">),(</span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="o">#</span><span class="w"> </span><span class="err">当</span><span class="n">ENUM类型的字段没有声明为NOT</span><span class="w"> </span><span class="n">NULL时</span><span class="err">，插入</span><span class="n">NULL也是有效的</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_enum</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">VALUES</span><span class="p">(</span><span class="k">NULL</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="9-set类型"><strong>9. SET类型</strong><a class="headerlink" href="#9-set类型" title="Permanent link"></a></h2>
+<p>SET表示一个字符串对象，可以包含0个或多个成员，但成员个数的上限为 64 。设置字段值时，可以取取值范围内的 0 个或多个值。</p>
+<p>当SET类型包含的成员个数不同时，其所占用的存储空间也是不同的，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>成员个数范围（L表示实际成员个数）</th>
+<th>占用的存储空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 &lt;= L &lt;= 8</td>
+<td>1个字节</td>
+</tr>
+<tr>
+<td>9 &lt;= L &lt;= 16</td>
+<td>2个字节</td>
+</tr>
+<tr>
+<td>17 &lt;= L &lt;= 24</td>
+<td>3个字节</td>
+</tr>
+<tr>
+<td>25 &lt;= L &lt;= 32</td>
+<td>4个字节</td>
+</tr>
+<tr>
+<td>33 &lt;= L &lt;= 64</td>
+<td>8个字节</td>
+</tr>
+</tbody>
+</table>
+<p>SET类型在存储数据时成员个数越多，其占用的存储空间越大。注意：SET类型在选取成员时，可以一次选择多个成员，这一点与ENUM类型不同。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_set</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_set</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;A,B&#39;</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="o">#</span><span class="err">插入重复的</span><span class="n">SET类型成员时</span><span class="err">，</span><span class="n">MySQL会自动删除重复的成员</span><span class="w"> </span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_set</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;A,B,C,A&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="10-二进制字符串类型"><strong>10.</strong> <strong>二进制字符串类型</strong><a class="headerlink" href="#10-二进制字符串类型" title="Permanent link"></a></h2>
+<p>MySQL中的二进制字符串类型主要存储一些二进制数据，比如可以存储图片、音频和视频等二进制数据。</p>
+<p><strong>BINARY与VARBINARY类型</strong></p>
+<p>BINARY和VARBINARY类似于CHAR和VARCHAR，只是它们存储的是二进制字符串。</p>
+<p>BINARY (M)为固定长度的二进制字符串，M表示最多能存储的字节数，取值范围是0~255个字符。如果未指定(M)，表示只能存储<code>1个字节</code>。例如BINARY (8)，表示最多能存储8个字节，如果字段值不足(M)个字节，将在右边填充'\0'以补齐指定长度。</p>
+<p>VARBINARY (M)为可变长度的二进制字符串，M表示最多能存储的字节数，总字节数不能超过行的字节长度限制65535，另外还要考虑额外字节开销，VARBINARY类型的数据除了存储数据本身外，还需要1或2个字节来存储数据的字节数。VARBINARY类型<code>必须指定(M)</code>，否则报错。</p>
+<table>
+<thead>
+<tr>
+<th>二进制字符串类型</th>
+<th>特点</th>
+<th>值的长度</th>
+<th>占用空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BINARY(M)</td>
+<td>固定长度</td>
+<td>M （0 &lt;= M &lt;= 255）</td>
+<td>M个字节</td>
+</tr>
+<tr>
+<td>VARBINARY(M)</td>
+<td>可变长度</td>
+<td>M（0 &lt;= M &lt;= 65535）</td>
+<td>M+1个字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BLOB类型</strong></p>
+<p>BLOB是一个<code>二进制大对象</code>，可以容纳可变数量的数据。</p>
+<p>需要注意的是，在实际工作中，往往不会在MySQL数据库中使用BLOB类型存储大对象数据，通常会将图片、音频和视频文件存储到<code>服务器的磁盘上</code>，并将图片、音频和视频的访问路径存储到MySQL中。</p>
+<table>
+<thead>
+<tr>
+<th>二进制字符串类型</th>
+<th>值的长度</th>
+<th>长度范围</th>
+<th>占用空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 255</td>
+<td>L + 1 个字节</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 65535（相当于64KB）</td>
+<td>L + 2 个字节</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 16777215 （相当于16MB）</td>
+<td>L + 3 个字节</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>L</td>
+<td>0 &lt;= L &lt;= 4294967295（相当于4GB）</td>
+<td>L + 4 个字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TEXT和BLOB的使用注意事项：</strong></p>
+<p>在使用text和blob字段类型时要注意以下几点，以便更好的发挥数据库的性能。</p>
+<p>① BLOB和TEXT值也会引起自己的一些问题，特别是执行了大量的删除或更新操作的时候。删除这种值会在数据表中留下很大的"<code>空洞</code>"，以后填入这些"空洞"的记录可能长度不同。为了提高性能，建议定期使用 OPTIMIZE TABLE 功能对这类表进行<code>碎片整理</code>。</p>
+<p>② 如果需要对大文本字段进行模糊查询，MySQL 提供了<code>前缀索引</code>。但是仍然要在不必要的时候避免检索大型的BLOB或TEXT值。例如，SELECT * 查询就不是很好的想法，除非你能够确定作为约束条件的WHERE子句只会找到所需要的数据行。否则，你可能毫无目的地在网络上传输大量的值。</p>
+<p>③ 把BLOB或TEXT列<code>分离到单独的表</code>中。在某些环境中，如果把这些数据列移动到第二张数据表中，可以让你把原数据表中的数据列转换为固定长度的数据行格式，那么它就是有意义的。这会<code>减少主表中的碎片</code>，使你得到固定长度数据行的性能优势。它还使你在主数据表上运行 SELECT * 查询的时候不会通过网络传输大量的BLOB或TEXT值。</p>
+<h2 id="11-json-类型"><strong>11. JSON</strong> <strong>类型</strong><a class="headerlink" href="#11-json-类型" title="Permanent link"></a></h2>
+<p>JSON（JavaScript Object Notation）是一种轻量级的 数据交换格式 。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。它易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。<strong>JSON</strong> <strong>可以将</strong> <strong>JavaScript</strong> <strong>对象中表示的一组数据转换为字符串，然后就可以在网络或者程序之间轻松地传递这个字符串，并在需要的时候将它还原为各编程语言所支持的数据格式。</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_json</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">js</span><span class="w"> </span><span class="n">json</span><span class="w"> </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">test_json</span><span class="w"> </span><span class="p">(</span><span class="n">js</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;{&quot;name&quot;:&quot;songhk&quot;, &quot;age&quot;:18, &quot;address&quot;:{&quot;province&quot;:&quot;beijing&quot;, &quot;city&quot;:&quot;beijing&quot;}}&#39;</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">js</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;$.name&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NAME</span><span class="p">,</span><span class="n">js</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;$.age&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="p">,</span><span class="n">js</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;$.address.province&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">province</span><span class="p">,</span><span class="w"> </span><span class="n">js</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;$.address.city&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">city</span><span class="w"> </span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">test_json</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="12-空间类型"><strong>12.</strong> <strong>空间类型</strong><a class="headerlink" href="#12-空间类型" title="Permanent link"></a></h2>
+<p>MySQL的空间数据类型（Spatial Data Type）对应于OpenGIS类，包括单值类型：GEOMETRY、POINT、 LINESTRING、POLYGON以及集合类型：MULTIPOINT、MULTILINESTRING、MULTIPOLYGON、 GEOMETRYCOLLECTION 。</p>
+<h2 id="13-小结及选择建议"><strong>13.</strong> <strong>小结及选择建议</strong><a class="headerlink" href="#13-小结及选择建议" title="Permanent link"></a></h2>
+<p>在定义数据类型时，如果确定是<code>整数</code>，就用<code>INT</code>； 如果是<code>小数</code>，一定用定点数类型<code>DECIMAL(M,D)</code>； 如果是日期与时间，就用<code>DATETIME</code>。</p>
+<p>这样做的好处是，首先确保你的系统不会因为数据类型定义出错。不过，凡事都是有两面的，可靠性好，并不意味着高效。比如，TEXT 虽然使用方便，但是效率不如 CHAR(M) 和 VARCHAR(M)。</p>
+<p>关于字符串的选择，建议参考如下阿里巴巴的《Java开发手册》规范：</p>
+<p><strong>阿里巴巴《Java开发手册》之MySQL数据库：</strong></p>
+<ul>
+<li>
+<p>任何字段如果为非负数，必须是 UNSIGNED</p>
+</li>
+<li>
+<p>【<code>强制</code>】小数类型为 DECIMAL，禁止使用 FLOAT 和 DOUBLE。</p>
+</li>
+<li>
+<p>说明：在存储的时候，FLOAT 和 DOUBLE 都存在精度损失的问题，很可能在比较值的时候，得到不正确的结果。<strong>如果存储的数据范围超过 DECIMAL 的范围，建议将数据拆成整数和小数并分开存储。</strong></p>
+</li>
+<li>
+<p>【<code>强制</code>】如果存储的字符串长度几乎相等，使用 CHAR 定长字符串类型。</p>
+</li>
+</ul>
+<p>【<code>强制</code>】VARCHAR 是可变长字符串，不预先分配存储空间，长度不要超过 5000。如果存储长度大于此值，定义字段类型为 TEXT，独立出来一张表，用主键来对应，避免影响其它字段索引效率。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2022 - 2023 &emsp; copyright &copy; NingNing7
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/2043393364" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<2043393364@qq.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "navigation.indexes", "search.share", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

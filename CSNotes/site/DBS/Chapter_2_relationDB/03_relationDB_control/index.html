@@ -994,6 +994,33 @@
     关系数据语言的分类
   </a>
   
+    <nav class="md-nav" aria-label="关系数据语言的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#关系代数语言" class="md-nav__link">
+    关系代数语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#关系演算语言" class="md-nav__link">
+    关系演算语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#具有关系代数和关系演算双重特点的语言" class="md-nav__link">
+    具有关系代数和关系演算双重特点的语言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1541,6 +1568,33 @@
     关系数据语言的分类
   </a>
   
+    <nav class="md-nav" aria-label="关系数据语言的分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#关系代数语言" class="md-nav__link">
+    关系代数语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#关系演算语言" class="md-nav__link">
+    关系演算语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#具有关系代数和关系演算双重特点的语言" class="md-nav__link">
+    具有关系代数和关系演算双重特点的语言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1692,24 +1746,19 @@
 <li>关系特有操作</li>
 </ul>
 <h2 id="关系数据语言的分类">关系数据语言的分类<a class="headerlink" href="#关系数据语言的分类" title="Permanent link"></a></h2>
-<ol>
-<li><strong>关系代数语言</strong></li>
-</ol>
+<h3 id="关系代数语言"><strong>关系代数语言</strong><a class="headerlink" href="#关系代数语言" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;关系代数语言是用<strong>关系的运算来表达查询要求</strong>的。如：ISBL。</p>
-<ol>
-<li><strong>关系演算语言</strong></li>
-</ol>
+<h3 id="关系演算语言"><strong>关系演算语言</strong><a class="headerlink" href="#关系演算语言" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;关系演算语言可分为以下两类：
 - 元组关系演算语言(ALPHA、QUEL)
 - 域关系演算语言(QBE)</p>
-<ol>
-<li><strong>具有关系代数和关系演算双重特点的语言</strong></li>
-</ol>
+<h3 id="具有关系代数和关系演算双重特点的语言"><strong>具有关系代数和关系演算双重特点的语言</strong><a class="headerlink" href="#具有关系代数和关系演算双重特点的语言" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;具有关系代数和关系演算双重特点的语言又称为<strong>结构化查询语言(Structured Query Language,SQL)</strong>。SQL是<strong>集查询、数据定义语言、数据操纵语言和数据控制语言于一体的关系数据语言</strong>。特别的，SQL是<strong>一种高度非过程化的语言</strong>。</p>
 <h2 id="关系代数">关系代数<a class="headerlink" href="#关系代数" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;关系代数是一种抽象的查询语言，它用对关系的运算来表达查询。在关系代数中，运算对象是关系，运算结果也是关系，关系代数的运算符有两类：集合运算符和专门的关系运算符。</p>
 <blockquote>
 <p>集合运算符</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1736,7 +1785,9 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
 <p>专门的关系运算符</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1763,9 +1814,8 @@
 </tr>
 </tbody>
 </table>
-</blockquote>
 <h2 id="基本符号"><strong>基本符号</strong><a class="headerlink" href="#基本符号" title="Permanent link"></a></h2>
-<p>(1) <strong><span class="arithmatex">\(R,t\isin R,t[A_i]\)</span></strong></p>
+<p>(1) <strong><span class="arithmatex">\(R,t \in R,t[A_i]\)</span></strong></p>
 <p>&emsp;&emsp;设关系模式为<span class="arithmatex">\(R(A_1,A_2,...,A_n)\)</span>,它的一个关系为<span class="arithmatex">\(R\)</span>,则：
 - <span class="arithmatex">\(t \in R\)</span>表示<span class="arithmatex">\(t\)</span>是<span class="arithmatex">\(R\)</span>的一个元组；
 - <span class="arithmatex">\(t[A_i]\)</span>表示元组<span class="arithmatex">\(t\)</span>中相应于属性<span class="arithmatex">\(A_i\)</span>的一个分量。</p>
@@ -1773,13 +1823,13 @@
 <p>&emsp;&emsp;若<span class="arithmatex">\(A=\{A_{i1},A_{i2},...,A_{ik}\}\)</span>,其中<span class="arithmatex">\(A_{i1},A_{i2},...,A_{ik}\)</span>是<span class="arithmatex">\(A_1,A_2,...,A_n\)</span>中的一部分，则<span class="arithmatex">\(A\)</span>称为<strong>属性列</strong>或<strong>属性组</strong>。</p>
 <p>&emsp;&emsp;<span class="arithmatex">\(t[A] = (t[A_{i1}],t[A_{i2}],...,t[A_{Aik}])\)</span>表示元组<span class="arithmatex">\(t\)</span>在属性列<span class="arithmatex">\(A\)</span>上诸分量的集合。</p>
 <p>&emsp;&emsp;<span class="arithmatex">\(\overline{A}\)</span>则表示<span class="arithmatex">\({A_1,A_2,...,A_n}\)</span>中去掉<span class="arithmatex">\(A_{i1},A_{i2},...,A_{ik}\)</span>后剩余的属性组。</p>
-<p>(3) <strong><span class="arithmatex">\(\overgroup{t_rt_s}\)</span></strong></p>
-<p>&emsp;&emsp;<span class="arithmatex">\(R\)</span>为<span class="arithmatex">\(n\)</span>目关系，<span class="arithmatex">\(S\)</span>为<span class="arithmatex">\(m\)</span>目关系，其中<span class="arithmatex">\(t_r\isin R\)</span>,<span class="arithmatex">\(t_s \isin S\)</span>,则<span class="arithmatex">\(\overgroup{t_rt_s}\)</span>称为元组的连接。</p>
-<p>&emsp;&emsp;<span class="arithmatex">\(\overgroup{t_rt_s}\)</span>是一个<span class="arithmatex">\(n+m\)</span>列的元组，前<span class="arithmatex">\(n\)</span>个分量为<span class="arithmatex">\(R\)</span>中的一个<span class="arithmatex">\(n\)</span>元组，后<span class="arithmatex">\(m\)</span>个分量为<span class="arithmatex">\(S\)</span>中的一个<span class="arithmatex">\(m\)</span>元组。</p>
+<p>(3) <strong><span class="arithmatex">\(\mathop{\frown} \limits_{t_rt_s}\)</span></strong></p>
+<p>&emsp;&emsp;<span class="arithmatex">\(R\)</span>为<span class="arithmatex">\(n\)</span>目关系，<span class="arithmatex">\(S\)</span>为<span class="arithmatex">\(m\)</span>目关系，其中<span class="arithmatex">\(t_r\in R\)</span>,<span class="arithmatex">\(t_s \in S\)</span>,则<span class="arithmatex">\(\mathop{\frown} \limits_{t_rt_s}\)</span>称为元组的连接。</p>
+<p>&emsp;&emsp;<span class="arithmatex">\(\mathop{\frown} \limits_{t_rt_s}\)</span>是一个<span class="arithmatex">\(n+m\)</span>列的元组，前<span class="arithmatex">\(n\)</span>个分量为<span class="arithmatex">\(R\)</span>中的一个<span class="arithmatex">\(n\)</span>元组，后<span class="arithmatex">\(m\)</span>个分量为<span class="arithmatex">\(S\)</span>中的一个<span class="arithmatex">\(m\)</span>元组。</p>
 <p>(4) <strong>象集<span class="arithmatex">\(Z_x\)</span></strong></p>
 <p>&emsp;&emsp;给定一个关系<span class="arithmatex">\(R(X,Z)\)</span>,<span class="arithmatex">\(X\)</span>和<span class="arithmatex">\(Z\)</span>为属性组。则当<span class="arithmatex">\(t[X] = x\)</span>时，<span class="arithmatex">\(x\)</span>在<span class="arithmatex">\(R\)</span>中的象集为：
 $$
-    Z_x = {t[Z] | t\isin R,t[X] = x }
+    Z_x = \lbrace t[Z] | t\in R,t[X] = x \rbrace
 $$</p>
 <p>&emsp;&emsp;它表示<span class="arithmatex">\(R\)</span>中属性组<span class="arithmatex">\(X\)</span>上值为<span class="arithmatex">\(x\)</span>的诸元组在<span class="arithmatex">\(Z\)</span>上分量的集合。</p>
 <h2 id="传统关系操作">传统关系操作<a class="headerlink" href="#传统关系操作" title="Permanent link"></a></h2>
@@ -1787,7 +1837,7 @@ $$</p>
 <p>&emsp;&emsp;现给定<span class="arithmatex">\(R\)</span>和<span class="arithmatex">\(S\)</span>,他们<strong>都具有相同的目<span class="arithmatex">\(n\)</span>，即两个关系都有<span class="arithmatex">\(n\)</span>个属性，相应的属性取自同一个域</strong>。</p>
 <p>&emsp;&emsp;<span class="arithmatex">\(R \cup S\)</span>。结果仍为<span class="arithmatex">\(n\)</span>目关系，由属于<span class="arithmatex">\(R\)</span>或属于<span class="arithmatex">\(S\)</span>的元组组成：
 $$
-    R \cup S = { t | t \isin R \lor t \isin S}
+    R \cup S = \lbrace t | t \in R \lor t \in S \rbrace
 $$</p>
 <p><img alt="" src="../imags/2-1.png" /></p>
 <p><img alt="" src="../imags/2-2.png" /></p>
@@ -1795,7 +1845,7 @@ $$</p>
 <p>&emsp;&emsp;现给定<span class="arithmatex">\(R\)</span>和<span class="arithmatex">\(S\)</span>,他们<strong>都具有相同的目<span class="arithmatex">\(n\)</span>，即两个关系都有<span class="arithmatex">\(n\)</span>个属性，相应的属性取自同一个域</strong>。</p>
 <p>&emsp;&emsp;<span class="arithmatex">\(R - S\)</span>。结果仍为<span class="arithmatex">\(n\)</span>目关系，由属于<span class="arithmatex">\(R\)</span>而不属于<span class="arithmatex">\(S\)</span>的所有元组组成：
 $$
-    R - S = { t | t\isin R \land t \notin S}
+    R - S = \lbrace t | t\in R \land t \notin S \rbrace
 $$</p>
 <p><img alt="" src="../imags/2-3.png" /></p>
 <p><img alt="" src="../imags/2-4.png" /></p>
@@ -1803,65 +1853,69 @@ $$</p>
 <p>&emsp;&emsp;现给定<span class="arithmatex">\(R\)</span>和<span class="arithmatex">\(S\)</span>,他们<strong>都具有相同的目<span class="arithmatex">\(n\)</span>，即两个关系都有<span class="arithmatex">\(n\)</span>个属性，相应的属性取自同一个域</strong>。</p>
 <p>&emsp;&emsp;<span class="arithmatex">\(R \cap S\)</span>。结果仍为<span class="arithmatex">\(n\)</span>目关系，由既属于<span class="arithmatex">\(R\)</span>又属于<span class="arithmatex">\(S\)</span>的元组组成：
 $$
-    R \cap S = {t | t \in R \land t \in S} \
-    R \cap S = R - (R - S)
+    R \cap S = \lbrace t | t \in R \land t \in S \rbrace
 $$</p>
+<div class="arithmatex">\[
+    R \cap S = R - (R - S)
+\]</div>
 <p><img alt="" src="../imags/2-5.png" /></p>
 <p><img alt="" src="../imags/2-6.png" /></p>
 <h3 id="笛卡尔积"><strong>笛卡尔积</strong><a class="headerlink" href="#笛卡尔积" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;给定具有<span class="arithmatex">\(n\)</span>目关系，<span class="arithmatex">\(k_1\)</span>个元组的<span class="arithmatex">\(R\)</span>和具有<span class="arithmatex">\(m\)</span>目关系,<span class="arithmatex">\(k_2\)</span>个元组的<span class="arithmatex">\(S\)</span>。</p>
-<p>&emsp;&emsp;<span class="arithmatex">\(R \times S\)</span>:
-- 列：(n + m)列元组的集合。元组的前<span class="arithmatex">\(n\)</span>列是关系<span class="arithmatex">\(R\)</span>的一个元组，后<span class="arithmatex">\(m\)</span>列是关系<span class="arithmatex">\(S\)</span>的一个元组。
-- 行：<span class="arithmatex">\(k_1 \times k_2\)</span>个元组：
-$$
-R \times S = {\overgroup{t_rt_s} | t_r \in R \land t_s \in S  }
-$$</p>
+<p>&emsp;&emsp;<span class="arithmatex">\(R \times S\)</span>:</p>
+<ul>
+<li>列：(n + m)列元组的集合。元组的前<span class="arithmatex">\(n\)</span>列是关系<span class="arithmatex">\(R\)</span>的一个元组，后<span class="arithmatex">\(m\)</span>列是关系<span class="arithmatex">\(S\)</span>的一个元组。</li>
+<li>行：<span class="arithmatex">\(k_1 \times k_2\)</span>个元组：</li>
+</ul>
+<div class="arithmatex">\[
+R \times S = \lbrace \mathop{\frown} \limits_{t_rt_s} | t_r \in R \land t_s \in S  \rbrace
+\]</div>
 <p><img alt="" src="../imags/2-7.png" /></p>
 <p><img alt="" src="../imags/2-8.png" /></p>
 <h2 id="专门的关系运算">专门的关系运算<a class="headerlink" href="#专门的关系运算" title="Permanent link"></a></h2>
 <h3 id="选择"><strong>选择</strong><a class="headerlink" href="#选择" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;选择又称为限制。它是在关系<span class="arithmatex">\(R\)</span>中选择满足给定条件的诸元组，记作：
 $$
-    \sigma_F(R) = {t | t \in R \land F(t) = true }
+    \sigma_F(R) = \lbrace t | t \in R \land F(t) = true \rbrace
 $$</p>
-<p>&emsp;&emsp;其中<span class="arithmatex">\(F\)</span>表示选择条件，它是一个逻辑表达式，取<span class="arithmatex">\(true\)</span>或<span class="arithmatex">\(false\)</span>。该逻辑表达式<span class="arithmatex">\(F\)</span>的基本形式为：
-$$
+<p>&emsp;&emsp;其中<span class="arithmatex">\(F\)</span>表示选择条件，它是一个逻辑表达式，取<span class="arithmatex">\(true\)</span>或<span class="arithmatex">\(false\)</span>。该逻辑表达式<span class="arithmatex">\(F\)</span>的基本形式为：</p>
+<div class="arithmatex">\[
     X_1 \varTheta Y_1
-$$</p>
-<p>&emsp;&emsp;其中，<span class="arithmatex">\(\varTheta\)</span>表示比较运算符，可以是<span class="arithmatex">\(&gt;,\ge,&lt;,\le,=或&lt;&gt;(\ne)\)</span>。</p>
+\]</div>
+<p>&emsp;&emsp;其中，<span class="arithmatex">\({\varTheta}\)</span>表示比较运算符，可以是<span class="arithmatex">\(&gt;,\ge,&lt;,\le,=或&lt;&gt;(\ne)\)</span>。</p>
 <p><img alt="" src="../imags/2-9.png" /></p>
 <h3 id="投影"><strong>投影</strong><a class="headerlink" href="#投影" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;关系<span class="arithmatex">\(R\)</span>上的投影是从<span class="arithmatex">\(R\)</span>中选择出若干属性列组成新的关系。记作：
 $$
-    {\prod}_A(R) = { t[A] | t \in R }
+    {\prod}_A(R) = \lbrace t[A] | t \in R \rbrace
 $$</p>
 <p>&emsp;&emsp;其中，<span class="arithmatex">\(A\)</span>为R中的属性列。</p>
 <p><img alt="" src="../imags/2-10.png" /></p>
 <h3 id="连接"><strong>连接</strong><a class="headerlink" href="#连接" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;连接也称为<span class="arithmatex">\(\varTheta\)</span>连接。它是从两个关系的笛卡尔积中选取属性间满足一定条件的元组。记作：
 $$
-    R \mathop{\bowtie} \limits_{A \varTheta B} S = { \overgroup{t_rt_s} | t_r \in R \land t_s \in S \land t_r[A] \varTheta t_s[B] }
+    R \mathop{\bowtie} \limits_{A \varTheta B} S = \lbrace \mathop{\frown} \limits_{t_rt_s} | t_r \in R \land t_s \in S \land t_r[A] \varTheta t_s[B] \rbrace
 $$</p>
 <p>&emsp;&emsp;其中，<span class="arithmatex">\(A\)</span>和<span class="arithmatex">\(B\)</span>分别为<span class="arithmatex">\(R\)</span>和<span class="arithmatex">\(S\)</span>上列数相等且可比的属性组，<span class="arithmatex">\(\varTheta\)</span>是比较运算符。</p>
 <p><img alt="" src="../imags/2-11.png" /></p>
 <h4 id="等值连接">等值连接<a class="headerlink" href="#等值连接" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;若<span class="arithmatex">\(\varTheta\)</span>为"<span class="arithmatex">\(=\)</span>"的连接运算称为等值连接。此时就是从关系<span class="arithmatex">\(R\)</span>和关系<span class="arithmatex">\(S\)</span>的广义笛卡尔积中选取<span class="arithmatex">\(A、B\)</span>属性值相等的元组集，表示方法为：</p>
 <div class="arithmatex">\[
-    R \mathop{\bowtie} \limits_{A = B} S = \{ \overgroup{t_rt_s} | t_r \in R \land t_s \in S \land t_r[A] = t_s[B] \}
+    R \mathop{\bowtie} \limits_{A = B} S = \lbrace \mathop{\frown} \limits_{t_rt_s} | t_r \in R \land t_s \in S \land t_r[A] = t_s[B] \rbrace
 \]</div>
 <p><img alt="" src="../imags/2-12.png" /></p>
 <h4 id="自然连接">自然连接<a class="headerlink" href="#自然连接" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;自然连接是一种特殊的等值连接。它要求：<strong>两个关系中进行比较的分量必须是相同的属性组</strong>，同时<strong>在结果中把重复的属性列去掉</strong>。</p>
 <p>&emsp;&emsp;由此可以知晓，<span class="arithmatex">\(R\)</span>和<span class="arithmatex">\(S\)</span>具有相同的属性组<span class="arithmatex">\(B\)</span>,其表示方式为：</p>
 <div class="arithmatex">\[
-    R \mathop{\bowtie}  S = \{ \overgroup{t_rt_s}[U-B] | t_r \in R \land t_s \in S \land t_r[B] = t_s[B] \}
+    R \mathop{\bowtie}  S = \lbrace \mathop{\frown} \limits_{t_rt_s}[U-B] | t_r \in R \land t_s \in S \land t_r[B] = t_s[B] \rbrace
 \]</div>
 <p><img alt="" src="../imags/2-13.png" /></p>
 <h3 id="除运算"><strong>除运算</strong><a class="headerlink" href="#除运算" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;设关系<span class="arithmatex">\(R\)</span>除以关系<span class="arithmatex">\(S\)</span>的结果为关系<span class="arithmatex">\(T\)</span>,<strong>则<span class="arithmatex">\(T\)</span>包含所有在<span class="arithmatex">\(R\)</span>但不在<span class="arithmatex">\(S\)</span>中的属性及其值，且<span class="arithmatex">\(T\)</span>的元组与<span class="arithmatex">\(S\)</span>的元组的所有组合都在<span class="arithmatex">\(R\)</span>中</strong>。</p>
 <p>&emsp;&emsp;给定关系<span class="arithmatex">\(R(X,Y)\)</span>和<span class="arithmatex">\(S(Y,Z)\)</span>,其中<span class="arithmatex">\(X,Y,Z\)</span>为属性组。<span class="arithmatex">\(R\)</span>中的<span class="arithmatex">\(Y\)</span>与<span class="arithmatex">\(S\)</span>中<span class="arithmatex">\(Y\)</span>可以有不同的属性名，但都出自同一域集。<span class="arithmatex">\(R\)</span>与<span class="arithmatex">\(S\)</span>的除运算得到一个新的关系<span class="arithmatex">\(P(X)\)</span>,<span class="arithmatex">\(P\)</span>是<span class="arithmatex">\(R\)</span>中满足下列条件的元组在<span class="arithmatex">\(X\)</span>属性列上的投影：<strong>元组在<span class="arithmatex">\(X\)</span>上分量值为<span class="arithmatex">\(x\)</span>的象集<span class="arithmatex">\(Y_x\)</span>包含<span class="arithmatex">\(S\)</span>在<span class="arithmatex">\(Y\)</span>上投影的集合</strong>。表示为：</p>
 <div class="arithmatex">\[
-    R \div S = \{ t_r[X] | t_r \in R \land \varPi_Y(S) \sube Y_x \}
+    R \div S = \lbrace t_r[X] | t_r \in R \land \varPi_Y(S) \subseteq Y_x \rbrace
 \]</div>
 <p>&emsp;&emsp;其中<span class="arithmatex">\(Y_x\)</span>为<span class="arithmatex">\(x\)</span>在<span class="arithmatex">\(R\)</span>中的象集，<span class="arithmatex">\(x=t_r[X]\)</span></p>
 <p><img alt="" src="../imags/2-14.png" /></p>

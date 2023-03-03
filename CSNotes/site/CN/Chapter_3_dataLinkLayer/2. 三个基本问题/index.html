@@ -1476,18 +1476,18 @@
 <h2 id="封装成帧">封装成帧<a class="headerlink" href="#封装成帧" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;封装成帧是指：<strong>数据链路层给上层交付的协议数据单元添加帧头和帧尾使之称为帧</strong>。其中，<strong>帧头和帧尾包含了有重要的控制信息</strong>。</p>
 <p><img alt="" src="../imags/4.png" /></p>
-<p>&emsp;&emsp;以太网V2的MAC帧(最大长度为1518字节)：
-<img alt="" src="../imags/5.png" /></p>
-<p>&emsp;&emsp;PPP帧的格式:
-<img alt="" src="../imags/6.png" /></p>
+<p>&emsp;&emsp;以太网V2的MAC帧(最大长度为1518字节)：</p>
+<p><img alt="" src="../imags/5.png" /></p>
+<p>&emsp;&emsp;PPP帧的格式:</p>
+<p><img alt="" src="../imags/6.png" /></p>
 <p>&emsp;&emsp;为了使接收方的物理链路层能够正常从发送方的物理层交付的比特流中提取出一个个帧，<strong>帧头帧尾还起到了帧定界的作用</strong>。</p>
-<p>&emsp;&emsp;拿PPP帧的格式举例，其<strong>帧头帧尾的左右各一个字节</strong>就起到了帧定界的作用。接收方可以依据帧定界标志的起止从而提取出一个个帧。
-<img alt="" src="../imags/7.png" /></p>
+<p>&emsp;&emsp;拿PPP帧的格式举例，其<strong>帧头帧尾的左右各一个字节</strong>就起到了帧定界的作用。接收方可以依据帧定界标志的起止从而提取出一个个帧。</p>
+<p><img alt="" src="../imags/7.png" /></p>
 <p>&emsp;&emsp;然而<strong>并不是所有的数据链路层协议的帧都包含有帧定界标志</strong>。比如以太网V2的MAC帧。那么接收方该如何从物理层交付的比特流中提取一个个以太网帧呢?</p>
-<p>&emsp;&emsp;实际上，以太网的数据链路层将数据单元封装成MAC帧后会将其交付给物理层，<strong>物理层会在MAC帧前面添加8字节的前导码</strong>。前导码中的<strong>前7个字节为前同步码</strong>，作用是使<strong>接收方的时钟同步</strong>；之后的一个字节为<strong>帧开始定界符</strong>，表明其后跟着的为MAC帧。
-<img alt="" src="../imags/8.png" /></p>
-<p>&emsp;&emsp;除此之外，以太网还规定了帧间间隔发送时间为<span class="arithmatex">\(96bit\)</span>的发送时间，因此MAC帧就不需要帧定界符了。
-<img alt="" src="../imags/9.png" /></p>
+<p>&emsp;&emsp;实际上，以太网的数据链路层将数据单元封装成MAC帧后会将其交付给物理层，<strong>物理层会在MAC帧前面添加8字节的前导码</strong>。前导码中的<strong>前7个字节为前同步码</strong>，作用是使<strong>接收方的时钟同步</strong>；之后的一个字节为<strong>帧开始定界符</strong>，表明其后跟着的为MAC帧。</p>
+<p><img alt="" src="../imags/8.png" /></p>
+<p>&emsp;&emsp;除此之外，以太网还规定了帧间间隔发送时间为<span class="arithmatex">\(96bit\)</span>的发送时间，因此MAC帧就不需要帧定界符了。</p>
+<p><img alt="" src="../imags/9.png" /></p>
 <h2 id="透明传输">透明传输<a class="headerlink" href="#透明传输" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;透明传输是指<strong>数据链路层对上层交付的传输数据没有任何限制</strong>，就好像数据链路层不存在一样。</p>
 <blockquote>
@@ -1518,8 +1518,8 @@
 <p><img alt="" src="../imags/15.png" /></p>
 <p>&emsp;&emsp;举例：</p>
 <p><img alt="" src="../imags/17.png" /></p>
-<p>&emsp;&emsp;说明：
-<img alt="" src="../imags/16.png" /></p>
+<p>&emsp;&emsp;说明：</p>
+<p><img alt="" src="../imags/16.png" /></p>
 <p>小结：</p>
 <ul>
 <li><strong>检错码</strong>只能检测出帧在传输过程中出现了差错，但并不能定位错误，因此<strong>无法纠正错误</strong>。</li>

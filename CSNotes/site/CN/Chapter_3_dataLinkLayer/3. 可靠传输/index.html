@@ -783,6 +783,26 @@
     回退N帧协议GBN
   </a>
   
+    <nav class="md-nav" aria-label="回退N帧协议GBN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方" class="md-nav__link">
+    发送方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方" class="md-nav__link">
+    接收方
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1474,6 +1494,26 @@
     回退N帧协议GBN
   </a>
   
+    <nav class="md-nav" aria-label="回退N帧协议GBN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方" class="md-nav__link">
+    发送方
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方" class="md-nav__link">
+    接收方
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1523,17 +1563,17 @@
 <h3 id="停止-等待协议sw">停止-等待协议SW<a class="headerlink" href="#停止-等待协议sw" title="Permanent link"></a></h3>
 <p>&emsp;&emsp;SW协议是数据链路层的几个协议中最基本的协议，是数据链路层各种协议的基础。在通信时，当接收方收到<strong>正确的数据帧</strong>后，便会向发送方发送一个<strong>确认帧<span class="arithmatex">\(ACK\)</span></strong>,表示发送的数据正确接收。当发送方收到确认帧后才能发送一个新的数据帧；若接收方<strong>接收到的数据产生了误码</strong>，就会丢弃该数据，同时向发送方发送<strong>否认分组<span class="arithmatex">\(NAK\)</span></strong>，发送方在收到接收方的<span class="arithmatex">\(NAC\)</span>帧后，就会重新发送上一次发送的数据。如此一来就实现了接收方对发送方的流量控制。</p>
 <p><img alt="" src="../imags/18.png" /></p>
-<p>&emsp;&emsp;然而在多个网络通过多个路由器互连的情况下，<strong>数据在传输过程中很容易发生丢失</strong>（对于点对点，单信道网络来说，这种情况较少）。若发送方发送的数据在传输过程中发生了<strong>丢失</strong>，接收方<strong>接收不到数据分组</strong>，接收方就<strong>不会发送<span class="arithmatex">\(ACK\)</span>或<span class="arithmatex">\(NAK\)</span></strong>。若不采取某些策略，发送方就会一直处于<strong>等待</strong>接收方的<span class="arithmatex">\(ACK\)</span>或<span class="arithmatex">\(NAK\)</span>的状态。
-&emsp;&emsp;为解决这一问题，可以在发送方发送完一个数据分组时，启动一个<strong>超时计时器</strong>。若发送方的等待时间超过了计时器所设置的<strong>重传时间</strong>，就会重新发送（重传）之前的数据分组。这就是<strong>超时重传</strong>。</p>
+<p>&emsp;&emsp;然而在多个网络通过多个路由器互连的情况下，<strong>数据在传输过程中很容易发生丢失</strong>（对于点对点，单信道网络来说，这种情况较少）。若发送方发送的数据在传输过程中发生了<strong>丢失</strong>，接收方<strong>接收不到数据分组</strong>，接收方就<strong>不会发送<span class="arithmatex">\(ACK\)</span>或<span class="arithmatex">\(NAK\)</span></strong>。若不采取某些策略，发送方就会一直处于<strong>等待</strong>接收方的<span class="arithmatex">\(ACK\)</span>或<span class="arithmatex">\(NAK\)</span>的状态。</p>
+<p>&emsp;&emsp;为解决这一问题，可以在发送方发送完一个数据分组时，启动一个<strong>超时计时器</strong>。若发送方的等待时间超过了计时器所设置的<strong>重传时间</strong>，就会重新发送（重传）之前的数据分组。这就是<strong>超时重传</strong>。</p>
 <blockquote>
 <p>重传时间一般设定为<strong>从发送方到接收方的平均往返时间</strong>。</p>
 </blockquote>
 <p><img alt="" src="../imags/19.png" /></p>
-<p>&emsp;&emsp;再考虑一种情况，既然发送方的数据分组可能发生丢失，那么接收方发送给发送方的<strong>确认分组<span class="arithmatex">\(ACK\)</span></strong> 或 <strong>否认分组NAK</strong>，也有可能会发生丢失。若假设接收方发送给发送方的确认分组<span class="arithmatex">\(ACK\)</span>丢失，则必然会导致发送方超时重传，此时接收方<strong>又会再次接收到已接收的数据</strong>。
-&emsp;&emsp;为了避免<strong>分组重复</strong>这种传输错误，必须给<strong>每个分组带上序号</strong>。由于发送一个数据分组就停止等待，只要保证每发送一个新的数据分组，其发送序号与上次发送的序号不同即可，因此，只需要用<strong>一个比特来编号</strong>（序号0和序号1）就够了。</p>
+<p>&emsp;&emsp;再考虑一种情况，既然发送方的数据分组可能发生丢失，那么接收方发送给发送方的<strong>确认分组<span class="arithmatex">\(ACK\)</span></strong> 或 <strong>否认分组NAK</strong>，也有可能会发生丢失。若假设接收方发送给发送方的确认分组<span class="arithmatex">\(ACK\)</span>丢失，则必然会导致发送方超时重传，此时接收方<strong>又会再次接收到已接收的数据</strong>。</p>
+<p>&emsp;&emsp;为了避免<strong>分组重复</strong>这种传输错误，必须给<strong>每个分组带上序号</strong>。由于发送一个数据分组就停止等待，只要保证每发送一个新的数据分组，其发送序号与上次发送的序号不同即可，因此，只需要用<strong>一个比特来编号</strong>（序号0和序号1）就够了。</p>
 <p><img alt="" src="../imags/20.png" /></p>
-<p>&emsp;&emsp;再来考虑一种情况，若接收方成功接收到了发送方发送过来的数据，并向发送方发送<span class="arithmatex">\(ACK\)</span>，然而，<span class="arithmatex">\(ACK\)</span>在传输过程中由于某些原因<strong>造成了延迟</strong>，在规定的<strong>重传时间外</strong>被发送方接收，这种情况下，发送方在接收到<span class="arithmatex">\(ACK\)</span>之前，必然进行了超时重传，向接收方重新发送了原来的数据分组，同时在接收到发生延迟的<span class="arithmatex">\(ACK\)</span>后，又会向接收方发送新的数据分组，接收方再接收到重复的数据分组后，必然会丢弃，同时向发送方发送<span class="arithmatex">\(ACK\)</span>。如此一来，接收方发生了重复确认的情况。
-<img alt="" src="../imags/21.png" /></p>
+<p>&emsp;&emsp;再来考虑一种情况，若接收方成功接收到了发送方发送过来的数据，并向发送方发送<span class="arithmatex">\(ACK\)</span>，然而，<span class="arithmatex">\(ACK\)</span>在传输过程中由于某些原因<strong>造成了延迟</strong>，在规定的<strong>重传时间外</strong>被发送方接收，这种情况下，发送方在接收到<span class="arithmatex">\(ACK\)</span>之前，必然进行了超时重传，向接收方重新发送了原来的数据分组，同时在接收到发生延迟的<span class="arithmatex">\(ACK\)</span>后，又会向接收方发送新的数据分组，接收方再接收到重复的数据分组后，必然会丢弃，同时向发送方发送<span class="arithmatex">\(ACK\)</span>。如此一来，接收方发生了重复确认的情况。</p>
+<p><img alt="" src="../imags/21.png" /></p>
 <p>&emsp;&emsp;这种情况的解决策略就是：<strong>对接收方发送过来的确认分组<span class="arithmatex">\(ACK\)</span>或否认分组<span class="arithmatex">\(NAK\)</span>进行编号</strong>。发送方在接收到重复的确认分组<span class="arithmatex">\(ACK\)</span>或否认分组<span class="arithmatex">\(NAK\)</span>时，选择忽略即可。</p>
 <p><img alt="" src="../imags/22.png" /></p>
 <p><strong>小结</strong></p>
@@ -1556,12 +1596,10 @@
 <p><img alt="" src="../imags/24.png" /></p>
 <p>&emsp;&emsp;在滑动窗口协议中，当窗口大小为1(即一次性发送1个数据包)时，此时的滑动窗口协议就是SW协议。</p>
 <p><img alt="" src="../imags/25.png" /></p>
-<p>&emsp;&emsp;在讨论GBN协议之前，先提一提<strong>累积确认</strong>。累积确认的意思就是：<strong>接收方不必对收到的分组逐个发送确认，而是可以在收到几个分组后，对按序到达的最后一个分组加以确认</strong>。
-&emsp;&emsp;假设发送方发送了<span class="arithmatex">\(0\)</span>~<span class="arithmatex">\(7\)</span>个帧，不久后接收到来自接收方<span class="arithmatex">\(ACK_1\)</span>,<span class="arithmatex">\(ACK_4\)</span>两个确认帧，这说明<strong>接收方成功接收到了第0,1帧，第2,3,4帧，而第5,6,7帧没有接收</strong>（超过定时时间，就会认定数据包未被接收）。那么在GBN协议中，发送方就需要对后面第5,6,7帧进行重传，此时N为3，即回退3帧。</p>
+<p>&emsp;&emsp;在讨论GBN协议之前，先提一提<strong>累积确认</strong>。累积确认的意思就是：<strong>接收方不必对收到的分组逐个发送确认，而是可以在收到几个分组后，对按序到达的最后一个分组加以确认</strong>。</p>
+<p>&emsp;&emsp;假设发送方发送了<span class="arithmatex">\(0\)</span>~<span class="arithmatex">\(7\)</span>个帧，不久后接收到来自接收方<span class="arithmatex">\(ACK_1\)</span>,<span class="arithmatex">\(ACK_4\)</span>两个确认帧，这说明<strong>接收方成功接收到了第0,1帧，第2,3,4帧，而第5,6,7帧没有接收</strong>（超过定时时间，就会认定数据包未被接收）。那么在GBN协议中，发送方就需要对后面第5,6,7帧进行重传，此时N为3，即回退3帧。</p>
 <p>&emsp;&emsp;现对GBN协议中的接收方和发送方分别讨论：</p>
-<ol>
-<li><strong>发送方</strong></li>
-</ol>
+<h4 id="发送方"><strong>发送方</strong><a class="headerlink" href="#发送方" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;现假设发送方有一系列要发送的帧。假设窗口大小为<span class="arithmatex">\(N\)</span>。此外，存在两个指针分别指向待发送帧地址和下一个发送帧的地址。</p>
 <blockquote>
 <p>若使用n个比特用来构成分组序号，则窗口N的取值为：
@@ -1574,19 +1612,17 @@ $$
 <p><img alt="" src="../imags/26.png" /></p>
 <p>&emsp;&emsp;首先，发送第一个帧。开始时，<span class="arithmatex">\(send\_base\)</span>=<span class="arithmatex">\(nextseqnum=0\)</span>。尽管后序可能会有更多的数据包需要发送，但是<span class="arithmatex">\(nextseqnum\)</span> &lt; <span class="arithmatex">\(send\)</span>_<span class="arithmatex">\(base + N\)</span>,因此要从<span class="arithmatex">\(nextseqnum\)</span>开始发送，同时根据接收到的确认信息，让<span class="arithmatex">\(nextseqnum\)</span>自增。在整个发送窗口中，会有一个单独的计时器，数据包在<span class="arithmatex">\(send\_base\)</span>发送后进行计时，若发生了超时，发送方将重新启动计时器，同时再次从<span class="arithmatex">\(send\_base\)</span>发送窗口中的数据包。</p>
 <p><img alt="" src="../imags/27.gif" /></p>
-<ol>
-<li><strong>接收方</strong>
-&emsp;&emsp;GBN协议的接收器应该尽可能的简单。接收方的窗口大小只能为1，因此接收方只能按序跟踪下一个接收的连续数据包序列号<span class="arithmatex">\(nextseqnum\)</span>。同时不设有缓冲区，对于无序的数据包或损坏的数据包，将被丢弃。
-&emsp;&emsp;在接收到发送方发送过来的数据包后，它都只需要发送最后接收的有序数据包ACK确认信息即可。因此，即使数据传输过程出现了问题，只要没有正确接收到全部数据包，它都会重复接收，直到数据包全部接收完毕。</li>
-</ol>
+<h4 id="接收方"><strong>接收方</strong><a class="headerlink" href="#接收方" title="Permanent link"></a></h4>
+<p>&emsp;&emsp;GBN协议的接收器应该尽可能的简单。接收方的窗口大小只能为1，因此接收方只能按序跟踪下一个接收的连续数据包序列号<span class="arithmatex">\(nextseqnum\)</span>。同时不设有缓冲区，对于无序的数据包或损坏的数据包，将被丢弃。</p>
+<p>&emsp;&emsp;在接收到发送方发送过来的数据包后，它都只需要发送最后接收的有序数据包ACK确认信息即可。因此，即使数据传输过程出现了问题，只要没有正确接收到全部数据包，它都会重复接收，直到数据包全部接收完毕。</p>
 <blockquote>
 <p>或许从协议的伪代码可以更加了解发送方和接收方的工作原理：</p>
 </blockquote>
 <p><img alt="" src="../imags/28.png" /></p>
 <p><img alt="" src="../imags/29.png" /></p>
 <h3 id="选择重传协议sr">选择重传协议SR<a class="headerlink" href="#选择重传协议sr" title="Permanent link"></a></h3>
-<p>&emsp;&emsp;在回退N帧协议中，接收窗口尺寸N只能等于1.因此接收方只能按序接收正确到达的数据分组。同时，一个数据分组的误码就会导致其后续多个数据分组不能被接收方按序接收而丢弃。这必然会造成发送方对这些数据分组的超时重传，显然这是对通信资源的极大浪费。
-&emsp;&emsp;为了进一步提高性能，可设法只重传出现误码的数据分组。因此，<strong>接收窗口的尺寸N不应再等于1，而应该大于1</strong>，以便<strong>接收方收下失序到达但无误码并且序号落在接收窗口内的那些数据分组</strong>，等到所缺分组收齐后再一并送交上层。这就是<strong>选择重传协议SR</strong>。</p>
+<p>&emsp;&emsp;在回退N帧协议中，接收窗口尺寸N只能等于1.因此接收方只能按序接收正确到达的数据分组。同时，一个数据分组的误码就会导致其后续多个数据分组不能被接收方按序接收而丢弃。这必然会造成发送方对这些数据分组的超时重传，显然这是对通信资源的极大浪费。</p>
+<p>&emsp;&emsp;为了进一步提高性能，可设法只重传出现误码的数据分组。因此，<strong>接收窗口的尺寸N不应再等于1，而应该大于1</strong>，以便<strong>接收方收下失序到达但无误码并且序号落在接收窗口内的那些数据分组</strong>，等到所缺分组收齐后再一并送交上层。这就是<strong>选择重传协议SR</strong>。</p>
 <blockquote>
 <p>选择重传协议为了使发送方仅重传出现差错的分组，接收方不能再采用累积确认，而需要对每个正确接收到的数据分组进行逐一确认。</p>
 </blockquote>
@@ -1604,11 +1640,11 @@ $$
 <blockquote>
 <p>在传输十分不稳定的情况下，使用显示的SR协议会更好。因为这种情况下，发生重传十分频繁，此时选择性地重传比重传所有帧更有效率。</p>
 </blockquote>
-<p>&emsp;&emsp;在SRP中，接收方的窗口应该小于等于发送方的窗口，若大于发送方的窗口，则无意义（为了提高效率，一般接收双方窗口相等）。为了避免数据包的错误识别，窗口大小的取值应该小于能表示的序列号的一半：
-$$
+<p>&emsp;&emsp;在SRP中，接收方的窗口应该小于等于发送方的窗口，若大于发送方的窗口，则无意义（为了提高效率，一般接收双方窗口相等）。为了避免数据包的错误识别，窗口大小的取值应该小于能表示的序列号的一半：</p>
+<div class="arithmatex">\[
 1 &lt; N_r &lt; N_s &lt;= 2^{n-1}
-$$
-其中n是用来表示序列号的比特数。</p>
+\]</div>
+<p>其中n是用来表示序列号的比特数。</p>
 <p><img alt="" src="../imags/30.png" /></p>
 
 

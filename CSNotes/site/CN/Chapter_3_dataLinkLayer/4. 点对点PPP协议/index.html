@@ -804,12 +804,52 @@
     面向字节的异步链路使用字节填充来实现透明传输
   </a>
   
+    <nav class="md-nav" aria-label="面向字节的异步链路使用字节填充来实现透明传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方处理" class="md-nav__link">
+    发送方处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方处理" class="md-nav__link">
+    接收方处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#面向比特的同步链路使用零比特填充来实现透明传输" class="md-nav__link">
     面向比特的同步链路使用零比特填充来实现透明传输
   </a>
+  
+    <nav class="md-nav" aria-label="面向比特的同步链路使用零比特填充来实现透明传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方处理_1" class="md-nav__link">
+    发送方处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方处理_1" class="md-nav__link">
+    接收方处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1495,12 +1535,52 @@
     面向字节的异步链路使用字节填充来实现透明传输
   </a>
   
+    <nav class="md-nav" aria-label="面向字节的异步链路使用字节填充来实现透明传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方处理" class="md-nav__link">
+    发送方处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方处理" class="md-nav__link">
+    接收方处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#面向比特的同步链路使用零比特填充来实现透明传输" class="md-nav__link">
     面向比特的同步链路使用零比特填充来实现透明传输
   </a>
+  
+    <nav class="md-nav" aria-label="面向比特的同步链路使用零比特填充来实现透明传输">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#发送方处理_1" class="md-nav__link">
+    发送方处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#接收方处理_1" class="md-nav__link">
+    接收方处理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1540,10 +1620,12 @@
 <h2 id="概述">概述<a class="headerlink" href="#概述" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;PPP（点对点）协议是<strong>用户计算机和 ISP 进行通信时所使用的数据链路层协议</strong>。点对点协议为点对点连接上传输多协议数据包提供了一个标准方法。该协议设计的目的主要是用来通过拨号或专线方式建立点对点连接发送数据，使其成为<strong>各种主机、网桥和路由器之间简单连接</strong>的一种解决方案.</p>
 <h2 id="组成">组成<a class="headerlink" href="#组成" title="Permanent link"></a></h2>
-<p>&emsp;&emsp;PPP协议有三个组成部分：
-- 将IP数据报封装到串行链路的方法；
-- 用来建立、配置和测试数据链路的<strong>链路控制协议LCP</strong>；
-- <strong>一套网络控制协议NCP</strong>，NCPs。</p>
+<p>&emsp;&emsp;PPP协议有三个组成部分：</p>
+<ul>
+<li>将IP数据报封装到串行链路的方法；</li>
+<li>用来建立、配置和测试数据链路的<strong>链路控制协议LCP</strong>；</li>
+<li><strong>一套网络控制协议NCP</strong>，NCPs。</li>
+</ul>
 <p>&emsp;&emsp;从网络体系结构的角度看点对点协议的PPP组成如下：</p>
 <p><img alt="" src="../imags/31.png" /></p>
 <p>&emsp;&emsp;PPP<strong>既支持异步链路，也支持面向比特的同步链路</strong>。IP数据报在PPP帧中就是其信息部分，这个信息部分的长度受<strong>最大传送单元MTU</strong>的限制。</p>
@@ -1570,33 +1652,21 @@
 <p>7*16+15 = 127 = <span class="arithmatex">\(2^{7}\)</span> - 1</p>
 </blockquote>
 <h3 id="面向字节的异步链路使用字节填充来实现透明传输">面向字节的异步链路使用字节填充来实现透明传输<a class="headerlink" href="#面向字节的异步链路使用字节填充来实现透明传输" title="Permanent link"></a></h3>
-<ol>
-<li>
-<p><strong>发送方处理</strong></p>
-</li>
-<li>
-<p>将数据载荷中出现的<strong>每一个0x7E减去0x20</strong>(相当于异或0x20),然后在其前面插入转义字符0x7D;</p>
-</li>
+<h4 id="发送方处理"><strong>发送方处理</strong><a class="headerlink" href="#发送方处理" title="Permanent link"></a></h4>
+<ul>
+<li>将数据载荷中出现的<strong>每一个0x7E减去0x20</strong>(相当于异或0x20),然后在其前面插入转义字符0x7D;</li>
 <li>若<strong>数据载荷中原来就含有0x7D</strong>,则把每一个0x7D减去0x20，然后在其前面插入转义字符0x7D;</li>
 <li>将数据载荷中出现的<strong>每一个ASCII码控制字符加上0x20</strong>,然后在其前面插入转义字符0x7D。</li>
-</ol>
+</ul>
 <p><img alt="" src="../imags/35.png" /></p>
-<ol>
-<li>
-<p><strong>接收方处理</strong></p>
-</li>
-<li>
-<p>进行<strong>与发送方相反的变换</strong>，就可以正确地恢复出未经过字节填充的原始数据载荷。</p>
-</li>
-</ol>
+<h4 id="接收方处理"><strong>接收方处理</strong><a class="headerlink" href="#接收方处理" title="Permanent link"></a></h4>
+<ul>
+<li>进行<strong>与发送方相反的变换</strong>，就可以正确地恢复出未经过字节填充的原始数据载荷。</li>
+</ul>
 <h3 id="面向比特的同步链路使用零比特填充来实现透明传输">面向比特的同步链路使用零比特填充来实现透明传输<a class="headerlink" href="#面向比特的同步链路使用零比特填充来实现透明传输" title="Permanent link"></a></h3>
-<ol>
-<li><strong>发送方处理</strong></li>
-</ol>
+<h4 id="发送方处理_1"><strong>发送方处理</strong><a class="headerlink" href="#发送方处理_1" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;对帧的数据载荷进行扫描，该操作一般由硬件完成。<strong>每出现5个连续的比特1，则在其后填充一个比特0</strong>。</p>
-<ol>
-<li><strong>接收方处理</strong></li>
-</ol>
+<h4 id="接收方处理_1"><strong>接收方处理</strong><a class="headerlink" href="#接收方处理_1" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;对帧的数据载荷进行扫描，<strong>每出现连续的比特1时，就把其后的一个比特0删除</strong>。</p>
 <p><img alt="" src="../imags/36.png" /></p>
 <h2 id="差错检测">差错检测<a class="headerlink" href="#差错检测" title="Permanent link"></a></h2>

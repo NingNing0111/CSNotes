@@ -914,6 +914,33 @@
     数据模型的组成要素
   </a>
   
+    <nav class="md-nav" aria-label="数据模型的组成要素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#数据结构" class="md-nav__link">
+    数据结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数据操作" class="md-nav__link">
+    数据操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#完整性约束条件" class="md-nav__link">
+    完整性约束条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1611,6 +1638,33 @@
     数据模型的组成要素
   </a>
   
+    <nav class="md-nav" aria-label="数据模型的组成要素">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#数据结构" class="md-nav__link">
+    数据结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数据操作" class="md-nav__link">
+    数据操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#完整性约束条件" class="md-nav__link">
+    完整性约束条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1789,41 +1843,49 @@
 </ul>
 <h2 id="数据模型的概念">数据模型的概念<a class="headerlink" href="#数据模型的概念" title="Permanent link"></a></h2>
 <p>&emsp;&emsp;数据模型是<strong>对现实世界数据特征的抽象</strong>，通俗地讲，数据模型就是<strong>现实世界的模拟</strong>。</p>
-<p>&emsp;&emsp;数据模型应满足三方面要求：
-- 能比较真实地模拟现实世界；
-- 容易为人所理解；
-- 便于在计算机上实现；</p>
+<p>&emsp;&emsp;数据模型应满足三方面要求：</p>
+<ul>
+<li>能比较真实地模拟现实世界；</li>
+<li>容易为人所理解；</li>
+<li>便于在计算机上实现；</li>
+</ul>
 <p>&emsp;&emsp;数据模型是<strong>数据库系统的核心和基础</strong>。</p>
-<p>&emsp;&emsp;数据模型可分为两类：
-- <strong>概念模型，也称信息模型</strong>
-- <strong>逻辑模型和物理模型</strong></p>
+<p>&emsp;&emsp;数据模型可分为两类：</p>
+<ul>
+<li><strong>概念模型，也称信息模型</strong></li>
+<li><strong>逻辑模型和物理模型</strong></li>
+</ul>
 <h2 id="概念模型">概念模型<a class="headerlink" href="#概念模型" title="Permanent link"></a></h2>
-<p>&emsp;&emsp;概念模型是按用户地观点来对数据和信息建模，用于数据库设计。其主要用途如下：
-- 用于信息世界的建模；
-- 是现实世界到机器世界的一个中间层次；
-- 是数据库设计的有力工具；
-- 数据库设计人员和用户之间进行交流的语言。</p>
+<p>&emsp;&emsp;概念模型是按用户地观点来对数据和信息建模，用于数据库设计。其主要用途如下：</p>
+<ul>
+<li>用于信息世界的建模；</li>
+<li>是现实世界到机器世界的一个中间层次；</li>
+<li>是数据库设计的有力工具；</li>
+<li>数据库设计人员和用户之间进行交流的语言。</li>
+</ul>
 <p><img alt="" src="../imags/1-3.png" /></p>
 <p>&emsp;&emsp;一般地，概念模型应该具有：<strong>较强地语义表达能力和简单、清晰、易于用户理解</strong>的基本要求。</p>
 <ol>
-<li>信息世界的基本概念
-   <img alt="" src="../imags/1-4.png" /></li>
+<li>信息世界的基本概念</li>
+</ol>
+<p><img alt="" src="../imags/1-4.png" /></p>
+<ul>
 <li>实体：<strong>客观存在并可相互区别的事物</strong>。它可以是具体的人、事、物或抽象的概念。如：学生。</li>
 <li>属性：<strong>实体所具有的某一特性</strong>。一个实体可以由若干个属性来刻画。如：学号、姓名、性别等。</li>
 <li>码：<strong>唯一标识实体的属性集称为码</strong>。如：学号，因为学号可以唯一确认实体。</li>
 <li>实体型：<strong>用实体名及其属性名集合来抽象和刻画同类实体称为实体型</strong>。如上图的学生及其一些信息构成了一个学生实体型。</li>
 <li>实体集：<strong>同一类型实体的集合</strong>。如：所有的学生，就是学生的实体集。</li>
 <li>
-<p>联系：现实世界中事物内部以及事物之间的联系在信息世界中反映为实体(型)内部的联系和实体(型)之间的联系。
-  <img alt="" src="../imags/1-5.png" /></p>
+<p>联系：现实世界中事物内部以及事物之间的联系在信息世界中反映为实体(型)内部的联系和实体(型)之间的联系。</p>
 <ul>
 <li>实体内部的联系：<strong>组成实体的各属性之间的联系</strong>；</li>
 <li>实体之间的联系：<strong>不同实体集之间的联系</strong></li>
 </ul>
 </li>
-<li>
-<p>概念模型的表示方法</p>
-</li>
+</ul>
+<p><img alt="" src="../imags/1-5.png" /></p>
+<ol>
+<li>概念模型的表示方法</li>
 </ol>
 <p>&emsp;&emsp;概念模型有很多的表示方法，其中一种就是<strong>实体-联系方法</strong>(Entity-Relationship Approach，E-R)。一般用E-R图来描述现实世界的概念模型，而E-R方法也称为E-R模型。</p>
 <p><img alt="" src="../imags/1-6.png" /></p>
@@ -1831,49 +1893,46 @@
 <p>&emsp;&emsp;逻辑模型主要包括<strong>网状模型、层次模型、关系模型、面向对象数据模型、对象关系数据模型、半结构化数据模型等</strong>。它是按<strong>计算机系统地观点对数据建模，主要用于DBMS实现</strong>。</p>
 <p>&emsp;&emsp;物理模型是对数据最底层地抽象。它主要用于<strong>描述数据在系统内(磁盘上)的表示方式和存取方法</strong>。</p>
 <h3 id="数据模型的组成要素">数据模型的组成要素<a class="headerlink" href="#数据模型的组成要素" title="Permanent link"></a></h3>
-<p>&emsp;&emsp;数据模型是<strong>严格定义的一组概念的集合</strong>。它精确地描述了系统的静态特性、动态特性和完整性约束条件。因此，数据模型由三部分组成：
-- 数据结构 -- 描述系统的静态特性
-- 数据操作 -- 描述系统的动态特性
-- 完整性约束</p>
-<ol>
-<li><strong>数据结构</strong></li>
-</ol>
+<p>&emsp;&emsp;数据模型是<strong>严格定义的一组概念的集合</strong>。它精确地描述了系统的静态特性、动态特性和完整性约束条件。因此，数据模型由三部分组成：</p>
+<ul>
+<li>数据结构 -- 描述系统的静态特性</li>
+<li>数据操作 -- 描述系统的动态特性</li>
+<li>完整性约束</li>
+</ul>
+<h4 id="数据结构"><strong>数据结构</strong><a class="headerlink" href="#数据结构" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;数据结构是刻画数据模型性质的重要方面。一般<strong>使用数据结构的类型来命名数据模型</strong>。如：层次结构-层次模型、网状结构-网状模型、关系结构-关系模型。</p>
 <p>&emsp;&emsp;数据结构用于描述数据库的组成对象--对象的类型、内容、性质。</p>
 <p>&emsp;&emsp;数据结构用于描述对象之间的联系。</p>
-<ol>
-<li><strong>数据操作</strong></li>
-</ol>
+<h4 id="数据操作"><strong>数据操作</strong><a class="headerlink" href="#数据操作" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;数据操作就是<strong>对数据库中各种对象的实例允许执行的操作的集合，包括操作及其有关的操作规则</strong>。</p>
-<p>&emsp;&emsp;数据操作的类型有：
- - 查询
- - 更新（增、删、改）</p>
-<p>&emsp;&emsp;数据操作语言：
-- 查询语言：QL(Query Language)
-- 更新语言：DML</p>
-<ol>
-<li>
-<p><strong>完整性约束条件</strong></p>
-</li>
-<li>
-<p><strong>是一组完整性规则的集合</strong></p>
-</li>
+<p>&emsp;&emsp;数据操作的类型有：</p>
+<ul>
+<li>查询</li>
+<li>更新（增、删、改）</li>
+</ul>
+<p>&emsp;&emsp;数据操作语言：</p>
+<ul>
+<li>查询语言：QL(Query Language)</li>
+<li>更新语言：DML</li>
+</ul>
+<h4 id="完整性约束条件"><strong>完整性约束条件</strong><a class="headerlink" href="#完整性约束条件" title="Permanent link"></a></h4>
+<p><strong>它是一组完整性规则的集合</strong></p>
+<ul>
 <li>完整性规则：给定的数据模型中数据及其联系所具有的制约和依存规则。</li>
-<li>
-<p>这些规则用以限定符合数据模型的数据库状态以及状态的变化，以保证数据的正确、有效和相容。</p>
-</li>
-<li>
-<p>在数据模型中对完整性约束条件的定义</p>
-</li>
+<li>这些规则用以限定符合数据模型的数据库状态以及状态的变化，以保证数据的正确、有效和相容。</li>
+</ul>
+<p><strong>在数据模型中对完整性约束条件的定义</strong></p>
+<ul>
 <li>反映和规定必须遵守的基本的通用的完整性约束条件；</li>
 <li>提供定义完整性约束条件的机制，以反映具体应用所涉及的数据必须遵守的特定的语义约束条件。</li>
-</ol>
+</ul>
 <h3 id="层次模型">层次模型<a class="headerlink" href="#层次模型" title="Permanent link"></a></h3>
 <h4 id="层次模型的定义">层次模型的定义<a class="headerlink" href="#层次模型的定义" title="Permanent link"></a></h4>
-<p>&emsp;&emsp;层次模型用<strong>树形结构</strong>来表示各类实体以及实体间的联系。</p>
-<p>&emsp;&emsp;满足下面两个条件的基本层次联系的集合为层次模型：
-- 有且只有一个结点没有双亲结点，这个结点称为根结点。
-- 根结点以外的其它结点有且只有一个双亲结点。</p>
+<p>&emsp;&emsp;层次模型用<strong>树形结构</strong>来表示各类实体以及实体间的联系。满足下面两个条件的基本层次联系的集合为层次模型：</p>
+<ul>
+<li>有且只有一个结点没有双亲结点，这个结点称为根结点。</li>
+<li>根结点以外的其它结点有且只有一个双亲结点。</li>
+</ul>
 <h4 id="层次模型的表示">层次模型的表示<a class="headerlink" href="#层次模型的表示" title="Permanent link"></a></h4>
 <p>表示方法：</p>
 <ul>
@@ -1903,16 +1962,14 @@
 <li>更新操作时，应更新所有相应记录，以保证数据的移植性。</li>
 </ul>
 <h4 id="层次模型的优缺点">层次模型的优缺点<a class="headerlink" href="#层次模型的优缺点" title="Permanent link"></a></h4>
+<p><strong>1. 优点</strong></p>
 <ul>
-<li>优点</li>
 <li>层次模型的数据结构比较简单清晰</li>
 <li>查询效率高，性能优于关系模型，不低于网状模型</li>
-<li>
-<p>层次数据模型提供了良好的完整性支持</p>
-</li>
-<li>
-<p>缺点</p>
-</li>
+<li>层次数据模型提供了良好的完整性支持</li>
+</ul>
+<p><strong>2. 缺点</strong></p>
+<ul>
 <li>结点之间的多对多联系表示不自然</li>
 <li>对插入和删除操作的限制多，应用程序的编写比较复杂</li>
 <li>查询子女结点必须通过双亲结点</li>
@@ -1921,40 +1978,48 @@
 <h3 id="网状模型">网状模型<a class="headerlink" href="#网状模型" title="Permanent link"></a></h3>
 <h4 id="网状模型的定义">网状模型的定义<a class="headerlink" href="#网状模型的定义" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;网状数据库系统采用<strong>网状结构</strong>来表示各类实体以及实体间的联系。
-满足下面两个条件的基本层次联系时网状模型：
-- 允许一个以上的结点无双亲；
-- 一个结点可以有多于一个的双亲。</p>
+满足下面两个条件的基本层次联系时为网状模型：</p>
+<ul>
+<li>允许一个以上的结点无双亲；</li>
+<li>一个结点可以有多于一个的双亲。</li>
+</ul>
 <h4 id="网状模型的表示">网状模型的表示<a class="headerlink" href="#网状模型的表示" title="Permanent link"></a></h4>
-<p>表示方法：
-- 实体型：用记录类型描述。每个结点表示一个记录类型(实体)。
-- 属性：用字段描述。每个记录类型可包含若干个字段。
-- 联系：用结点之间的连线表示记录类型之间的<strong>一对多的父子联系</strong>。</p>
+<p>表示方法：</p>
+<ul>
+<li>实体型：用记录类型描述。每个结点表示一个记录类型(实体)。</li>
+<li>属性：用字段描述。每个记录类型可包含若干个字段。</li>
+<li>联系：用结点之间的连线表示记录类型之间的<strong>一对多的父子联系</strong>。</li>
+</ul>
 <p><img alt="" src="../imags/1-8.png" /></p>
-<p>特点：
-- 允许多个结点没有双亲结点；
-- 允许一个结点有多个双亲结点；
-- 允许两个结点之间有多种联系；
-- 需要为每个联系命名，并指出与该联系有关的双亲记录和子女记录。</p>
+<p>特点：</p>
+<ul>
+<li>允许多个结点没有双亲结点；</li>
+<li>允许一个结点有多个双亲结点；</li>
+<li>允许两个结点之间有多种联系；</li>
+<li>需要为每个联系命名，并指出与该联系有关的双亲记录和子女记录。</li>
+</ul>
 <h4 id="网状模型的数据操纵">网状模型的数据操纵<a class="headerlink" href="#网状模型的数据操纵" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;网状模型的数据操纵，无论是查询还是增删改，它都是<strong>导航式</strong>的。</p>
 <h4 id="网状模型的完整性约束">网状模型的完整性约束<a class="headerlink" href="#网状模型的完整性约束" title="Permanent link"></a></h4>
-<p>&emsp;&emsp;网状模型的完整性约束条件是不严格的。
-- 允许插入尚未确定双亲结点值得子女结点值；
-- 允许只删除双亲结点值。</p>
-<p>&emsp;&emsp;但实际得网状数据库系统中提供了一定的完整性约束：
-- 支持码的概念：唯一标识记录的数据项的集合，取唯一值；
-- 保证一个联系中双亲记录与子女记录之间是一对多的联系；
-- 可以定义双亲记录和子女记录之间某些约束条件</p>
-<h4 id="网状数据模型的优缺点">网状数据模型的优缺点<a class="headerlink" href="#网状数据模型的优缺点" title="Permanent link"></a></h4>
+<p>&emsp;&emsp;网状模型的完整性约束条件是不严格的。</p>
 <ul>
-<li>优点</li>
+<li>允许插入尚未确定双亲结点值得子女结点值；</li>
+<li>允许只删除双亲结点值。</li>
+</ul>
+<p>&emsp;&emsp;但实际得网状数据库系统中提供了一定的完整性约束：</p>
+<ul>
+<li>支持码的概念：唯一标识记录的数据项的集合，取唯一值；</li>
+<li>保证一个联系中双亲记录与子女记录之间是一对多的联系；</li>
+<li>可以定义双亲记录和子女记录之间某些约束条件</li>
+</ul>
+<h4 id="网状数据模型的优缺点">网状数据模型的优缺点<a class="headerlink" href="#网状数据模型的优缺点" title="Permanent link"></a></h4>
+<p><strong>1. 优点</strong></p>
+<ul>
 <li>能够更好直接地描述现实世界，如一个结点可以有多个双亲；</li>
-<li>
-<p>具有良好地性能，存取效率较高；</p>
-</li>
-<li>
-<p>缺点</p>
-</li>
+<li>具有良好地性能，存取效率较高；</li>
+</ul>
+<p><strong>2. 缺点</strong></p>
+<ul>
 <li>结构比较复杂，而且随着应用环境的扩大，数据库的结构就变得越来越复杂，不利于最终用户掌握；</li>
 <li>DDL、DML语言复杂，用户不容易实现；</li>
 <li>记录之间联系是通过存取路径实现的，应用程序必须选择存取路径，加重了程序员的负担。</li>
@@ -1962,35 +2027,74 @@
 <h3 id="关系模型">关系模型<a class="headerlink" href="#关系模型" title="Permanent link"></a></h3>
 <h4 id="关系模型的定义">关系模型的定义<a class="headerlink" href="#关系模型的定义" title="Permanent link"></a></h4>
 <p>&emsp;&emsp;关系数据库系统采用<strong>二维表</strong>来表示各类实体以及实体间的联系。</p>
-<p>关系模型中相关术语：
-- 关系：一个关系对应通常说的一张表；
-- 元组：表中的一行即为一个元组；
-- 属性：表中的一列即为一个属性，给每个属性起一个名称即为属性名；
-- 主码：表中的某个属性组，它可以唯一确定一个元组；
-- 域：一组具有相同数据类型的值的集合。属性的取值范围来自某个域；
-- 分量：元组中的一个属性值；
-- 关系模式：对关系的描述。</p>
+<p>关系模型中相关术语：</p>
+<ul>
+<li>关系：一个关系对应通常说的一张表；</li>
+<li>元组：表中的一行即为一个元组；</li>
+<li>属性：表中的一列即为一个属性，给每个属性起一个名称即为属性名；</li>
+<li>主码：表中的某个属性组，它可以唯一确定一个元组；</li>
+<li>域：一组具有相同数据类型的值的集合。属性的取值范围来自某个域；</li>
+<li>分量：元组中的一个属性值；</li>
+<li>关系模式：对关系的描述。</li>
+</ul>
 <h4 id="关系模型的表示">关系模型的表示<a class="headerlink" href="#关系模型的表示" title="Permanent link"></a></h4>
-<p>&emsp;&emsp;关系模型一般使用一张<strong>二维表</strong>来表示，相关术语如下：
-|关系术语|表格术语|
-|:----:|:-----:|
-|关系名|表名|
-|关系模式|表头（表格的描述）|
-|关系|一张二维表|
-|元组|记录或行|
-|属性|列|
-|属性名|列名|
-|属性值|列值|
-|分量|一条记录中的一个列值|
-|非规范关系|表中有表（大表嵌套小表）|</p>
+<p>&emsp;&emsp;关系模型一般使用一张<strong>二维表</strong>来表示，相关术语如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">关系术语</th>
+<th align="center">表格术语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">关系名</td>
+<td align="center">表名</td>
+</tr>
+<tr>
+<td align="center">关系模式</td>
+<td align="center">表头（表格的描述）</td>
+</tr>
+<tr>
+<td align="center">关系</td>
+<td align="center">一张二维表</td>
+</tr>
+<tr>
+<td align="center">元组</td>
+<td align="center">记录或行</td>
+</tr>
+<tr>
+<td align="center">属性</td>
+<td align="center">列</td>
+</tr>
+<tr>
+<td align="center">属性名</td>
+<td align="center">列名</td>
+</tr>
+<tr>
+<td align="center">属性值</td>
+<td align="center">列值</td>
+</tr>
+<tr>
+<td align="center">分量</td>
+<td align="center">一条记录中的一个列值</td>
+</tr>
+<tr>
+<td align="center">非规范关系</td>
+<td align="center">表中有表（大表嵌套小表）</td>
+</tr>
+</tbody>
+</table>
 <p>&emsp;&emsp;关系必须是<strong>规范化</strong>的，其最基本的规范条件：关系的每一个分量必须是一个不可分的数据项，<strong>不允许表中有表</strong>。如下图就是非规范关系的表：</p>
 <p><img alt="" src="../imags/1-9.png" /></p>
 <h4 id="关系模型的数据操纵">关系模型的数据操纵<a class="headerlink" href="#关系模型的数据操纵" title="Permanent link"></a></h4>
-<p>&emsp;&emsp;关系模型中的数据操纵是<strong>集合操作</strong>，操作对象和操作结果都是关系。
-- 增
-- 删
-- 改
-- 查</p>
+<p>&emsp;&emsp;关系模型中的数据操纵是<strong>集合操作</strong>，操作对象和操作结果都是关系。</p>
+<ul>
+<li>增</li>
+<li>删</li>
+<li>改</li>
+<li>查</li>
+</ul>
 <h4 id="关系模型的完整性约束">关系模型的完整性约束<a class="headerlink" href="#关系模型的完整性约束" title="Permanent link"></a></h4>
 <ul>
 <li>实体完整性</li>
@@ -1998,24 +2102,22 @@
 <li>用户定义的完整性</li>
 </ul>
 <h4 id="关系模型的优缺点">关系模型的优缺点<a class="headerlink" href="#关系模型的优缺点" title="Permanent link"></a></h4>
+<p><strong>1. 优点</strong></p>
 <ul>
-<li>优点</li>
 <li>建立在严格的数学概念的基础上</li>
 <li>概念单一<ul>
 <li>实体和各类联系都用关系来表示</li>
 <li>对数据的检索结果也是关系</li>
 </ul>
 </li>
-<li>
-<p>关系模型的存取路径对用户透明</p>
-<ul>
+<li>关系模型的存取路径对用户透明<ul>
 <li>具有更高的数据独立性，更好的安全保密性</li>
 <li>简化了程序员的工作和数据库开发建立的工作</li>
 </ul>
 </li>
-<li>
-<p>缺点</p>
-</li>
+</ul>
+<p><strong>2. 缺点</strong></p>
+<ul>
 <li>存取路径对用户透明，查询效率往往不如格式化数据模型；</li>
 <li>为提高性能，必须对用户的查询请求进行优化，增加了开发数据库管理系统的难度。</li>
 </ul>

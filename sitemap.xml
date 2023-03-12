@@ -116,11 +116,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ningning0111.github.io/CSNotes/Mkdocs-use/use/</loc>
-         <lastmod>2023-03-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ningning0111.github.io/CSNotes/MySQL/01.DatabaseOverview/</loc>
          <lastmod>2023-03-12</lastmod>
          <changefreq>daily</changefreq>
@@ -207,6 +202,11 @@
     </url>
     <url>
          <loc>https://ningning0111.github.io/CSNotes/MySQL/18.%20OtherCharacteristics/</loc>
+         <lastmod>2023-03-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ningning0111.github.io/CSNotes/WikiUse/use/</loc>
          <lastmod>2023-03-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
